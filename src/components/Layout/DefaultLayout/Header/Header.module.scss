@@ -1,0 +1,80 @@
+.wrapper {
+    height: 141px;
+}
+
+.header-upper {
+    height: 100px;
+    background-color: var(--primary);
+}
+
+.header-content {
+    margin: auto;
+    padding: 20px 15px;
+    width: 1270px;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.hc-logo {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    color: var(--dark-blue);
+    text-shadow: 2px 2px rgba(5, 56, 107, 0.6);
+}
+
+.logo-icon {
+    font-size: 4rem;
+    padding: 8px;
+}
+
+.hc-search {
+    width: 500px;
+    height: 40px;
+}
+
+.hc-user {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.user-tippy {
+    background-color: var(--white-green);
+    color: var(--primary);
+    box-shadow: 2px 2px 1px rgba(5, 56, 107, 0.6);
+    border-radius: 5px;
+    margin: -8px 0;
+    padding: 8px 0;
+}
+
+.login-tippy {
+    display: flex;
+    flex-direction: column;
+}
+
+.login-icon-item {
+    padding: 9px 24px;
+    text-decoration: none;
+    font-size: 1.4rem;
+
+    &:hover {
+        background-color: var(--primary);
+    }
+}
+
+.login-item {
+    padding: 8px;
+    cursor: pointer;
+    color: var(--dark-blue);
+
+    &:hover {
+        color: rgba(5, 56, 107, 0.6);
+    }
+}
+
+.login-icon {
+    font-size: 2.4rem;
+}

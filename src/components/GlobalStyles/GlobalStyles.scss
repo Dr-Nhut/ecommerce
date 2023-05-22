@@ -1,7 +1,11 @@
 @import 'normalize.css';
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
 :root {
-    --primary: #252a2b;
+    --primary: #5cdb95;
+    --dark-green: #379683;
+    --light-green: #8ee4af;
+    --white-green: #edf5e1;
+    --dark-blue: #05386b;
     --black: #000;
     --while: #fff;
 }
@@ -21,4 +25,10 @@ body {
     font-size: 1.4rem;
     line-height: 1.4;
     text-rendering: optimizeSpeed; //Tang toc do render font
+}
+
+input,
+button {
+    outline: none;
+    border: none;
 }
