@@ -1,0 +1,47 @@
+.wrapper {
+    background-color: var(--primary);
+    padding: 40px 0;
+}
+
+.container {
+    width: 1270px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.ft-info {
+    padding: 9px 16px;
+    flex: 1;
+    color: var(--dark-blue);
+}
+
+.title {
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: 8px 0;
+}
+
+.ft-item {
+    list-style-type: none;
+    font-weight: 600;
+    font-size: 1.4rem;
+    padding: 9px 0;
+    cursor: pointer;
+}
+
+.ft-icon {
+    width: 20px;
+    font-size: 1.4rem;
+    text-align: center;
+    padding-right: 4px;
+}
+
+.social {
+    display: flex;
+
+    .ft-item {
+        font-size: 3.2rem;
+        padding-right: 16px;
+    }
+}
