@@ -18,11 +18,20 @@
 }
 
 .hc-logo {
+    color: var(--dark-blue);
+    text-shadow: 2px 2px rgba(5, 56, 107, 0.6);
+}
+
+.hc-logo-link {
     display: flex;
     align-items: center;
     justify-content: space-around;
-    color: var(--dark-blue);
-    text-shadow: 2px 2px rgba(5, 56, 107, 0.6);
+    text-decoration: none;
+
+    &:active {
+        color: var(--dark-blue);
+        text-shadow: 2px 2px rgba(5, 56, 107, 0.6);
+    }
 }
 
 .logo-icon {
@@ -43,11 +52,16 @@
 
 .user-tippy {
     background-color: var(--white-green);
-    color: var(--primary);
+    color: var(--dark-blue);
     box-shadow: 2px 2px 1px rgba(5, 56, 107, 0.6);
     border-radius: 5px;
     margin: -8px 0;
     padding: 8px 0;
+}
+
+.cart-tippy {
+    padding-left: 8px;
+    padding-right: 8px;
 }
 
 .login-tippy {
@@ -77,4 +91,9 @@
 
 .login-icon {
     font-size: 2.4rem;
+}
+
+.header-navbar {
+    background-color: var(--white-green);
+    height: 41px;
 }

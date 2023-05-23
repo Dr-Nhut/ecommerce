@@ -5,6 +5,7 @@ import { faCartShopping, faCircleUser, faUserAstronaut } from "@fortawesome/free
 import { Link } from "react-router-dom";
 import Tippy from "@tippyjs/react/headless";
 import Search from "~/components/Search";
+import Navbar from "./Navbar";
 
 
 const cx = classNames.bind(styles);
@@ -14,8 +15,10 @@ function Header() {
             <div className={cx("header-upper")}>
                 <div className={cx("header-content")}>
                     <div className={cx("hc-logo")}>
-                        <FontAwesomeIcon className={cx("logo-icon")} icon={faUserAstronaut} />
-                        <h1>Astronaut</h1>
+                        <Link className={cx("hc-logo-link")} to="/">
+                            <FontAwesomeIcon className={cx("logo-icon")} icon={faUserAstronaut} />
+                            <h1>Astronaut</h1>
+                        </Link>
                     </div>
 
                     <div className={cx("hc-search")}>
@@ -24,6 +27,8 @@ function Header() {
 
                     <div className={cx("hc-user")}>
                         <Tippy
+                            trigger="click"
+                            hideOnClick={true}
                             maxWidth="none"
                             interactive
                             placement="bottom-end"
@@ -41,8 +46,6 @@ function Header() {
 
                         <Tippy
                             maxWidth="none"
-                            interactive
-                            placement="bottom-end"
                             render={attrs => (
                                 <div className={cx("cart-tippy", "user-tippy")} tabIndex="-1" {...attrs}>
                                     <span>Giỏ hàng</span>
@@ -57,7 +60,9 @@ function Header() {
                     </div>
                 </div>
             </div>
-            <nav className={cx("header-navbar")}></nav>
+            <nav className={cx("header-navbar")}>
+                <Navbar />
+            </nav>
         </header>
     );
 }
