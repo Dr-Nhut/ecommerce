@@ -1,7 +1,6 @@
 import classNames from "classnames/bind";
 import styles from "./Home.module.scss";
 import Banner from "~/components/Layout/Banner";
-import Button from "~/components/Button";
 import { banner1, banner2, banner3, bag, jacket, tshirt, outstanding } from "~/assets/images";
 const banner = [banner1, banner2, banner3];
 
@@ -12,37 +11,13 @@ function Home() {
     return (
         <div className={cx("wrapper")}>
             <div className={cx("banner")}>
-                <Banner data={banner} title="This brand was born for you" btnName="Shop Now" placement="top-left" />
+                <Banner data={banner} title="This brand was born for you" btnName="Khám phá ngay" btnTo="/product" placement="top-left" />
             </div>
             <div className={cx("home-collections")}>
-                <div className={cx("collection")}>
-                    <img className={cx("collection-img")} src={tshirt} alt="Áo thun"></img>
-                    <div className={cx("collection-box")}>
-                        <h1 className={cx("collection-title")}>Áo thun</h1>
-                        <Button className={cx("more-button")} to="/product/t-shirt" outline size="large">Xem thêm</Button>
-                    </div>
-                </div>
-                <div className={cx("collection")}>
-                    <img className={cx("collection-img")} src={jacket} alt="Áo thun"></img>
-                    <div className={cx("collection-box")}>
-                        <h1 className={cx("collection-title")}>Áo khoác</h1>
-                        <Button className={cx("more-button")} to="/product/jacket" outline size="large">Xem thêm</Button>
-                    </div>
-                </div>
-                <div className={cx("collection")}>
-                    <img className={cx("collection-img")} src={bag} alt="Áo thun"></img>
-                    <div className={cx("collection-box")}>
-                        <h1 className={cx("collection-title")}>Túi xách</h1>
-                        <Button className={cx("more-button")} to="/product/bag" outline size="large">Xem thêm</Button>
-                    </div>
-                </div>
-                <div className={cx("collection")}>
-                    <img className={cx("collection-img")} src={outstanding} alt="Áo thun"></img>
-                    <div className={cx("collection-box")}>
-                        <h1 className={cx("collection-title")}>Nổi bật</h1>
-                        <Button className={cx("more-button")} to="/product/outstanding" outline size="large">Xem thêm</Button>
-                    </div>
-                </div>
+                <Banner className={cx("collection")} data={[tshirt]} title="Áo thun" btnName="Xem thêm" btnTo="/product/tshirt" penetration />
+                <Banner className={cx("collection")} data={[jacket]} title="Áo khoác" btnName="Xem thêm" btnTo="/product/jacket" penetration />
+                <Banner className={cx("collection")} data={[bag]} title="Túi xách" btnName="Xem thêm" btnTo="/product/bag" penetration />
+                <Banner className={cx("collection")} data={[outstanding]} title="Nổi bật" btnName="Xem thêm" btnTo="/product/outstanding" penetration />
             </div>
         </div>
     );

@@ -3,6 +3,12 @@
     height: 100%;
 }
 
+.penetration {
+    &:hover {
+        opacity: 0.625;
+    }
+}
+
 .banner-item {
     display: block;
     width: 100%;

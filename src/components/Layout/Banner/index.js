@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import Button from "~/components/Button";
 const cx = classNames.bind(styles);
 
-function Banner({ data, title, btnName, placement = "center-center" }) {
+function Banner({ data, title, btnName, btnTo, placement = "center", penetration = false }) {
     const [index, setIndex] = useState(0);
     const length = data.length;
     useEffect(() => {
@@ -19,13 +19,14 @@ function Banner({ data, title, btnName, placement = "center-center" }) {
 
         return () => clearInterval(timerId);
     }, [index, length])
-    const classes = cx("shop-btn", placement.split('-'));
+    const classes = cx("wrapper", { penetration })
+    const btnClasses = cx("shop-btn", placement.split('-'));
     return (
-        <div className={cx("wrapper")}>
+        <div className={classes}>
             <img className={cx("banner-item")} src={data[index]} alt="banner" />
-            <div className={classes}>
+            <div className={btnClasses}>
                 <h1 className={cx("slogan")}>{title}</h1>
-                <Button className={cx("shop-now")} to="/product" outline size="large">{btnName}</Button>
+                <Button className={cx("shop-now")} to={btnTo} outline size="large">{btnName}</Button>
             </div>
         </div>
 
