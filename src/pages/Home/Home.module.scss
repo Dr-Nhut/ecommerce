@@ -11,11 +11,3 @@
     width: 100%;
     display: flex;
 }
-
-.collection {
-    width: 25%;
-    flex: 1;
-    &:hover {
-        opacity: 0.625;
-    }
-}

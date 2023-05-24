@@ -1,0 +1,21 @@
+.wrapper {
+    list-style-type: none;
+    &:hover {
+        background-color: var(--primary);
+    }
+}
+
+.item {
+    text-transform: capitalize;
+    font-size: 1.4rem;
+    padding: 16px;
+}
+
+.item-link {
+    text-decoration: none;
+    font-size: 1.8rem;
+
+    &:active {
+        color: var(--dark-blue);
+    }
+}

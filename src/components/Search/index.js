@@ -3,6 +3,7 @@ import styles from "./Search.module.scss";
 
 //components
 import Popper from "~/components/Popper";
+import MenuProduct from "../Popper/MenuProduct";
 //Hooks
 import { useState, useEffect, useRef } from "react"
 
@@ -66,20 +67,26 @@ function Search({ placeholder, className, rounded = false }) {
                 const render = [...products];
                 const anouncement = `Xem thêm ${products.length - 4} sản phẩm`;
                 return (
-                    <Popper title="Kết quả tìm kiếm" data={render.splice(0, 4)} anouncement={anouncement} to="/product" />
+                    <Popper>
+                        <MenuProduct title="Kết quả tìm kiếm" data={render.splice(0, 4)} anouncement={anouncement} to="/product" />
+                    </Popper>
                 );
             }
             else {
                 if (products !== emptyArray) {
                     return (
-                        <Popper title="Kết quả tìm kiếm" data={products} />
+                        <Popper>
+                            <MenuProduct title="Kết quả tìm kiếm" data={products} />
+                        </Popper>
                     )
                 }
             }
         }
         else {
             return (
-                <Popper title="Kết quả tìm kiếm" anouncement="Không tìm thấy sản phẩm nào" />
+                <Popper>
+                    <MenuProduct title="Kết quả tìm kiếm" anouncement="Không tìm thấy sản phẩm nào" />
+                </Popper>
             );
         }
     }

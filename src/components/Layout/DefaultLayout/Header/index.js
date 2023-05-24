@@ -6,7 +6,9 @@ import { Link } from "react-router-dom";
 import Tippy from "@tippyjs/react/headless";
 import Search from "~/components/Search";
 import Navbar from "./Navbar";
-
+import Popper from "~/components/Popper";
+import Menu from "~/components/Popper/Menu";
+import { AUTH_ITEMS } from "~/constant";
 
 const cx = classNames.bind(styles);
 function Header() {
@@ -34,8 +36,9 @@ function Header() {
                             placement="bottom-end"
                             render={attrs => (
                                 <div className={cx("login-tippy", "user-tippy")} tabIndex="-1" {...attrs}>
-                                    <Link className={cx("login-icon-item")} to="/login">Đăng nhập</Link>
-                                    <Link className={cx("login-icon-item")} to="/register">Đăng ký</Link>
+                                    <Popper>
+                                        <Menu data={AUTH_ITEMS} className={cx("login-icon-item")} />
+                                    </Popper>
                                 </div>
                             )}
                         >
