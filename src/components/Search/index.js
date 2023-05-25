@@ -5,7 +5,8 @@ import styles from "./Search.module.scss";
 import Popper from "~/components/Popper";
 import MenuProduct from "../Popper/MenuProduct";
 //Hooks
-import { useState, useEffect, useRef } from "react"
+import { ProductContext } from "~/store";
+import { useState, useEffect, useRef, useContext } from "react";
 
 //Icons
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -23,24 +24,15 @@ emptyArray.length = 1;
 function Search({ placeholder, className, rounded = false }) {
     const [hidden, setHidden] = useState(true);
     const [valueInput, setValueInput] = useState("");
+    const products = useContext(ProductContext);
     //Khởi tạo đổi tượng rỗng
     const [searchResult, setSearchResult] = useState(emptyArray);
     const inputRef = useRef();
-    const getProduct = (data) => {
-        if (data) {
-            fetch('https://fakestoreapi.com/products')
-                .then(res => res.json())
-                .then(json => {
-                    setSearchResult(json.filter(item => item.title.includes(data)));
-                })
-        }
-
-    }
     useEffect(() => {
         if (valueInput) {
-            getProduct(valueInput);
+            setSearchResult(products.filter(product => product.title.includes(valueInput)));
         }
-    }, [valueInput])
+    }, [valueInput, products])
 
     const handleInput = (value) => {
         setValueInput(value);

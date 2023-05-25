@@ -29,8 +29,11 @@ function Home() {
                 <Banner className={cx("collection")} data={[outstanding]} title="Nổi bật" btnName="Xem thêm" btnTo="/product/outstanding" penetration />
             </div>
             <div className={cx("home-featured-product")}>
-                <div className="section-title">
-                    <span>Sản phẩm nổi bật</span>
+                <div>
+                    <div className={cx("section-title")}>
+                        <span>Sản phẩm nổi bật</span>
+                    </div>
+
                     <div className={cx("featured-product")}>
                         {products.splice(0, 8).map((product, index) =>
                             <div key={index} className={cx("featured-product-item")}>

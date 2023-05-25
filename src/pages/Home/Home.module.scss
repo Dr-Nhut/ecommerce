@@ -12,6 +12,15 @@
     display: flex;
 }
 
+.section-title {
+    margin: 20px auto;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 2rem;
+    color: var(--dark-blue);
+    text-align: center;
+}
+
 .featured-product {
     margin: 40px auto 0;
     width: 1270px;

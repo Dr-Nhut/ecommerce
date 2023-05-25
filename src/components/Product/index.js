@@ -4,9 +4,11 @@ import Button from "../Button";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faHeart } from "@fortawesome/free-regular-svg-icons";
 import { faCartPlus } from "@fortawesome/free-solid-svg-icons";
-
+import { useContext } from "react";
+import { CartContext } from "~/store";
 const cx = classNames.bind(styles);
 function Product({ product }) {
+    const [state, dispatch] = useContext(CartContext);
     return (
         <div className={cx("wrapper")}>
             <div className={cx("container")}>
