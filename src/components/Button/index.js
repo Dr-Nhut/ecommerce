@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const cx = classNames.bind(styles);
 
-function Button({ to, link = false, href, icon, className, primary = false, outline = false, text = false, rounded = false, disabled = false, onClick, children, size = 'medium', ...passProps }) {
+function Button({ to, link = false, href, icon, className, primary = false, outline = false, text = false, rounded = false, square = false, disabled = false, onClick, children, size = 'medium', ...passProps }) {
     let Comp = 'button';
     const props = {
         onClick,
@@ -24,7 +24,7 @@ function Button({ to, link = false, href, icon, className, primary = false, outl
         Comp = 'a';
 
     }
-    const classes = cx('wrapper', size, className, { primary, outline, text, rounded, disabled, link });
+    const classes = cx('wrapper', size, className, { primary, outline, text, rounded, disabled, square, link });
 
     return (
         <Comp className={classes} {...props}>

@@ -11,3 +11,15 @@
     width: 100%;
     display: flex;
 }
+
+.featured-product {
+    margin: 40px auto 0;
+    width: 1270px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.featured-product-item {
+    width: 24%;
+}

@@ -9,6 +9,7 @@ import Navbar from "./Navbar";
 import Popper from "~/components/Popper";
 import Menu from "~/components/Popper/Menu";
 import { AUTH_ITEMS } from "~/constant";
+import { faHeart } from "@fortawesome/free-regular-svg-icons";
 
 const cx = classNames.bind(styles);
 function Header() {
@@ -28,6 +29,7 @@ function Header() {
                     </div>
 
                     <div className={cx("hc-user")}>
+
                         <Tippy
                             trigger="click"
                             hideOnClick={true}
@@ -37,13 +39,26 @@ function Header() {
                             render={attrs => (
                                 <div className={cx("login-tippy", "user-tippy")} tabIndex="-1" {...attrs}>
                                     <Popper>
-                                        <Menu data={AUTH_ITEMS} className={cx("login-icon-item")} />
+                                        <Menu data={AUTH_ITEMS} />
                                     </Popper>
                                 </div>
                             )}
                         >
                             <div className={cx("login-item")}>
                                 <FontAwesomeIcon className={cx("login-icon")} icon={faCircleUser} />
+                            </div>
+                        </Tippy>
+
+                        <Tippy
+                            maxWidth="none"
+                            render={attrs => (
+                                <div className={cx("cart-tippy", "user-tippy")} tabIndex="-1" {...attrs}>
+                                    <span>Sản phẩm yêu thích</span>
+                                </div>
+                            )}
+                        >
+                            <div className={cx("login-item")}>
+                                <FontAwesomeIcon className={cx("login-icon")} icon={faHeart} />
                             </div>
                         </Tippy>
 
