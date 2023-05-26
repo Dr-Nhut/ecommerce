@@ -1,0 +1,26 @@
+.wrapper {
+    position: fixed;
+    top: 40px;
+    right: 40px;
+    width: 200px;
+    height: 50px;
+    background-color: var(--dark-green);
+    border: 1px solid;
+    z-index: 999;
+}
+
+.info {
+    border-color: blue;
+}
+
+.success {
+    border-color: green;
+}
+
+.error {
+    border-color: red;
+}
+
+.warn {
+    border-color: yellow;
+}

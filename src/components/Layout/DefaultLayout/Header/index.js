@@ -18,7 +18,7 @@ function Header() {
     const products = useContext(ProductContext);
     const [state] = useContext(FavouriteContext);
 
-    const count = products.reduce((pre, cur) => {
+    const countFavourites = products.reduce((pre, cur) => {
         return pre + state[cur.id]
     }, 0)
 
@@ -67,7 +67,9 @@ function Header() {
                             )}
                         >
                             <div className={cx("login-item")}>
-                                <div>{count}</div>
+                                <div className={cx("count-product")}>
+                                    <span>{countFavourites}</span>
+                                </div>
                                 <FontAwesomeIcon className={cx("login-icon")} icon={faHeart} />
                             </div>
                         </Tippy>
@@ -81,6 +83,9 @@ function Header() {
                             )}
                         >
                             <div className={cx("login-item")}>
+                                <div className={cx("count-product")}>
+                                    <span>0</span>
+                                </div>
                                 <FontAwesomeIcon className={cx("login-icon")} icon={faCartShopping} />
                             </div>
                         </Tippy>

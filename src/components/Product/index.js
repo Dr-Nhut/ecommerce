@@ -2,29 +2,48 @@ import classNames from "classnames/bind";
 import styles from "./Product.module.scss"
 import Button from "../Button";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEye, faHeart } from "@fortawesome/free-regular-svg-icons";
-import { faCartPlus } from "@fortawesome/free-solid-svg-icons";
-import { useContext } from "react";
+import { faEye } from "@fortawesome/free-regular-svg-icons";
+import { faCartPlus, faHeart } from "@fortawesome/free-solid-svg-icons";
+import { useContext, useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 import { FavouriteContext, actions } from "~/store";
+import Message from "../Message";
+import { SUCSESS } from "~/constant";
 const cx = classNames.bind(styles);
 function Product({ product }) {
+    const [messageFav, setMessageFav] = useState({
+        isShow: false,
+        message: ""
+    });
     const [state, dispatch] = useContext(FavouriteContext);
-    var classNameBtn;
-    if (state[product.id]) {
-        classNameBtn = "active";
-    }
-    else {
-        classNameBtn = null;
-    }
+    useEffect(() => {
+        if (messageFav.isShow) {
+            setTimeout(() => {
+                setMessageFav({
+                    isShow: false,
+                    message: ""
+                });
+            }, 5000);
+        }
+    }, [messageFav.isShow])
+    const classNameBtn = state[product.id] ? "active" : null;
     var handleFav;
     if (state[product.id] === 0) {
         handleFav = () => {
-            dispatch(actions.addToFavourite(product.id))
+            dispatch(actions.addToFavourite(product.id));
+            setMessageFav({
+                isShow: true,
+                message: "Sản phẩm đã được thêm vào mục yêu thích"
+            });
         };
     }
     else {
         handleFav = () => {
-            dispatch(actions.removeToFavourite(product.id))
+            dispatch(actions.removeToFavourite(product.id));
+            setMessageFav({
+                isShow: true,
+                message: "Sản phẩm đã được xóa khỏi mục yêu thích"
+            });
         };
     }
     return (
@@ -57,6 +76,12 @@ function Product({ product }) {
                     <FontAwesomeIcon icon={faEye} />
                 </Button>
             </div>
+            {messageFav.isShow &&
+                createPortal(
+                    <Message type={SUCSESS} message={messageFav.message} />,
+                    document.body
+                )
+            }
         </div >
     );
 }
