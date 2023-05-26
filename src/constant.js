@@ -8,3 +8,7 @@ export const AUTH_ITEMS = [
         to: "/register"
     }
 ]
+
+
+export const ADD_TO_FAVOURITE = "add_to_favorite"
+export const REMOVE_TO_FAVOURITE = "remove_to_favorite"

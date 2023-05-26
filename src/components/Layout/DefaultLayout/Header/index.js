@@ -10,9 +10,18 @@ import Popper from "~/components/Popper";
 import Menu from "~/components/Popper/Menu";
 import { AUTH_ITEMS } from "~/constant";
 import { faHeart } from "@fortawesome/free-regular-svg-icons";
+import { useContext } from "react";
+import { FavouriteContext, ProductContext } from "~/store";
 
 const cx = classNames.bind(styles);
 function Header() {
+    const products = useContext(ProductContext);
+    const [state] = useContext(FavouriteContext);
+
+    const count = products.reduce((pre, cur) => {
+        return pre + state[cur.id]
+    }, 0)
+
     return (
         <header className={cx("wrapper")}>
             <div className={cx("header-upper")}>
@@ -58,6 +67,7 @@ function Header() {
                             )}
                         >
                             <div className={cx("login-item")}>
+                                <div>{count}</div>
                                 <FontAwesomeIcon className={cx("login-icon")} icon={faHeart} />
                             </div>
                         </Tippy>

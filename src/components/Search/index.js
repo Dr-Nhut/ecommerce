@@ -33,7 +33,6 @@ function Search({ placeholder, className, rounded = false }) {
             setSearchResult(products.filter(product => product.title.includes(valueInput)));
         }
     }, [valueInput, products])
-
     const handleInput = (value) => {
         setValueInput(value);
         if (value) {

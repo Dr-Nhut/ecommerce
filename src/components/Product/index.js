@@ -5,10 +5,28 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faHeart } from "@fortawesome/free-regular-svg-icons";
 import { faCartPlus } from "@fortawesome/free-solid-svg-icons";
 import { useContext } from "react";
-import { CartContext } from "~/store";
+import { FavouriteContext, actions } from "~/store";
 const cx = classNames.bind(styles);
 function Product({ product }) {
-    const [state, dispatch] = useContext(CartContext);
+    const [state, dispatch] = useContext(FavouriteContext);
+    var classNameBtn;
+    if (state[product.id]) {
+        classNameBtn = "active";
+    }
+    else {
+        classNameBtn = null;
+    }
+    var handleFav;
+    if (state[product.id] === 0) {
+        handleFav = () => {
+            dispatch(actions.addToFavourite(product.id))
+        };
+    }
+    else {
+        handleFav = () => {
+            dispatch(actions.removeToFavourite(product.id))
+        };
+    }
     return (
         <div className={cx("wrapper")}>
             <div className={cx("container")}>
@@ -29,7 +47,7 @@ function Product({ product }) {
             </div>
 
             <div className={cx("action")}>
-                <Button square outline>
+                <Button className={cx(classNameBtn)} onClick={() => handleFav()} square outline>
                     <FontAwesomeIcon icon={faHeart} />
                 </Button>
                 <Button square outline>
@@ -39,7 +57,7 @@ function Product({ product }) {
                     <FontAwesomeIcon icon={faEye} />
                 </Button>
             </div>
-        </div>
+        </div >
     );
 }
 

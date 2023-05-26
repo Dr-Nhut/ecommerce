@@ -2,21 +2,17 @@ import classNames from "classnames/bind";
 import styles from "./Home.module.scss";
 import Banner from "~/components/Layout/Banner";
 import Product from "~/components/Product";
+import {ProductContext} from "~/store";
 import { banner1, banner2, banner3, bag, jacket, tshirt, outstanding } from "~/assets/images";
-import { useEffect, useState } from "react";
+import { useContext } from "react";
 const banner = [banner1, banner2, banner3];
 
 
 const cx = classNames.bind(styles);
 
 function Home() {
-    let [products, setProducts] = useState([]);
-    useEffect(() => {
-        fetch("https://fakestoreapi.com/products")
-            .then((res) => res.json())
-            .then((json) => setProducts(json));
-    }, [])
-
+    const value = useContext(ProductContext);
+    const products = [...value];
     return (
         <div className={cx("wrapper")}>
             <div className={cx("banner")}>

@@ -1,20 +1,27 @@
-import { useState, useEffect } from "react";
-import { ProductContext } from "./Context";
+import { useState, useLayoutEffect } from "react";
+import ProductContext from "./Context";
 
-function Provider({ children }) {
-    const [product, setProducts] = useState([]);
+function ProductProvider({ children }) {
+    const [products, setProducts] = useState([]);
 
-    useEffect(() => {
-        fetch('https://fakestoreapi.com/products')
-            .then(res => res.json())
-            .then(json => {
-                setProducts(json);
+
+    useLayoutEffect(() => {
+        fetch("https://fakestoreapi.com/products")
+            .then(response => {
+                return response.json()
             })
-    }, [])
-    return (
-        <ProductContext.Provider value={product}>
+            .then(data => {
+                setProducts(data)
+            })
+    }, []);
+    if (Array.isArray(products) && products.length === 0) {
+        return <h1>Loading...</h1>;
+    }
+    else return (
+        <ProductContext.Provider value={products}>
             {children}
-        </ProductContext.Provider>)
+        </ProductContext.Provider>
+    )
 }
 
-export default Provider;
+export default ProductProvider;

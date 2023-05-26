@@ -3,15 +3,15 @@ import ReactDOM from 'react-dom/client';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import GlobalStyles from '~/components/GlobalStyles';
-import { CartProvider, ProductProvider } from "~/store"
+import { ProductProvider, FavouriteProvider } from "~/store";
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <GlobalStyles>
       <ProductProvider>
-        <CartProvider>
+        <FavouriteProvider>
           <App />
-        </CartProvider>
+        </FavouriteProvider>
       </ProductProvider>
     </GlobalStyles>
   </React.StrictMode>
