@@ -12,15 +12,41 @@ import { AUTH_ITEMS } from "~/constant";
 import { faHeart } from "@fortawesome/free-regular-svg-icons";
 import { useContext } from "react";
 import { FavouriteContext, ProductContext } from "~/store";
+import MenuProduct from "~/components/Popper/MenuProduct";
+import Button from "~/components/Button";
 
 const cx = classNames.bind(styles);
 function Header() {
     const products = useContext(ProductContext);
     const [state] = useContext(FavouriteContext);
-
+    let favProducts = [];
     const countFavourites = products.reduce((pre, cur) => {
+        if (state[cur.id]) {
+            favProducts.push(cur);
+        }
         return pre + state[cur.id]
     }, 0)
+
+    const handleFavTippy = (attrs) => {
+        return countFavourites ?
+            (
+                <div className={cx("cart-tippy", "user-tippy")} tabIndex="-1" {...attrs}>
+                    <div className={cx("tippy-content")}>
+                        {
+                            favProducts.length <= 4
+                                ? <MenuProduct title="Sản phẩm đã thích" data={favProducts} />
+                                : <MenuProduct title="Sản phẩm đã thích" data={[...favProducts].splice(0, 4)} anouncement={`Xem thêm ${favProducts.length - 4} sản phẩm`} />
+                        }
+                    </div>
+                    <div className={cx("tippy-btn")}><Button to="/products/favourites" primary>Xem tất cả</Button></div>
+                </div>
+            ) :
+            (
+                <div className={cx("cart-tippy", "user-tippy")} tabIndex="-1" {...attrs}>
+                    <span>Sản phẩm yêu thích</span>
+                </div>
+            )
+    }
 
     return (
         <header className={cx("wrapper")}>
@@ -59,11 +85,13 @@ function Header() {
                         </Tippy>
 
                         <Tippy
+                            trigger="focusin click"
+                            hideOnClick={true}
                             maxWidth="none"
+                            interactive
+                            placement="bottom-end"
                             render={attrs => (
-                                <div className={cx("cart-tippy", "user-tippy")} tabIndex="-1" {...attrs}>
-                                    <span>Sản phẩm yêu thích</span>
-                                </div>
+                                handleFavTippy(attrs)
                             )}
                         >
                             <div className={cx("login-item")}>

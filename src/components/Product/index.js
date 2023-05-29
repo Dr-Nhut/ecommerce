@@ -9,8 +9,11 @@ import { createPortal } from "react-dom";
 import { FavouriteContext, actions } from "~/store";
 import Message from "../Message";
 import { SUCSESS } from "~/constant";
+import CartModal from "../Modal/CartModal";
+import Modal from "../Modal";
 const cx = classNames.bind(styles);
 function Product({ product }) {
+    const [showModal, setShowModal] = useState(false);
     const [messageFav, setMessageFav] = useState({
         isShow: false,
         message: ""
@@ -46,6 +49,10 @@ function Product({ product }) {
             });
         };
     }
+
+    const handleShowModal = () => {
+        setShowModal(true);
+    }
     return (
         <div className={cx("wrapper")}>
             <div className={cx("container")}>
@@ -69,7 +76,7 @@ function Product({ product }) {
                 <Button className={cx(classNameBtn)} onClick={() => handleFav()} square outline>
                     <FontAwesomeIcon icon={faHeart} />
                 </Button>
-                <Button square outline>
+                <Button onClick={() => handleShowModal()} square outline>
                     <FontAwesomeIcon icon={faCartPlus} />
                 </Button>
                 <Button square outline>
@@ -82,7 +89,18 @@ function Product({ product }) {
                     document.body
                 )
             }
+
+            {showModal &&
+                createPortal(
+                    <Modal>
+                        <CartModal isShow={setShowModal} product={product}></CartModal>
+                    </Modal>,
+                    document.body
+                )
+            }
         </div >
+
+
     );
 }
 

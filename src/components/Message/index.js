@@ -24,9 +24,13 @@ function Message({ type = { INFO }, message }) {
     }
     return (
         <div className={cx("wrapper", type)}>
+            <span className={cx("border-1")}></span>
+            <span className={cx("border-2")}></span>
+            <span className={cx("border-3")}></span>
+            <span className={cx("border-4")}></span>
             <FontAwesomeIcon icon={icon} />
-            <span>{message}</span>
-        </div>
+            <span className={cx("message-content")}>{message}</span>
+        </div >
     );
 }
 

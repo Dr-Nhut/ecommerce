@@ -1,26 +1,109 @@
 .wrapper {
     position: fixed;
-    top: 40px;
+    top: 100px;
     right: 40px;
-    width: 200px;
-    height: 50px;
-    background-color: var(--dark-green);
-    border: 1px solid;
+    width: 360px;
+    padding: 9px 16px;
+    background-color: var(--white-green);
+    border: none;
+    overflow: hidden;
     z-index: 999;
+    color: var(--dark-blue);
 }
 
 .info {
-    border-color: blue;
+    --linear: linear-gradient(to right, #171618, #0693e3);
 }
 
 .success {
-    border-color: green;
+    --linear: linear-gradient(to right, #171618, #3bff3b);
 }
 
 .error {
-    border-color: red;
+    --linear: linear-gradient(to right, #171618, #db3e00);
 }
 
 .warn {
-    border-color: yellow;
+    --linear: linear-gradient(to right, #171618, #ffff33);
+}
+
+.border-1 {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 3px;
+    background: var(--linear);
+    animation: animate1 2s linear infinite;
+}
+
+@keyframes animate1 {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+.border-2 {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 3px;
+    background: var(--linear);
+    animation: animate2 2s linear infinite;
+    animation-delay: 1s;
+}
+@keyframes animate2 {
+    0% {
+        transform: translateY(-100%);
+    }
+    100% {
+        transform: translateY(100%);
+    }
+}
+
+.border-3 {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 3px;
+    background: var(--linear);
+    animation: animate3 2s linear infinite;
+}
+
+@keyframes animate3 {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+.border-4 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 3px;
+    background: var(--linear);
+    animation: animate4 2s linear infinite;
+    animation-delay: 1s;
+}
+
+@keyframes animate4 {
+    0% {
+        transform: translateY(100%);
+    }
+    100% {
+        transform: translateY(-100%);
+    }
+}
+
+.message-content {
+    padding-left: 5px;
 }
