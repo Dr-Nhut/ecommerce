@@ -26,7 +26,7 @@ function CartModal({ product, isShow }) {
     const startsWidth = 100 - product.rating.rate * 20;
 
     return (
-        <div className={cx("wrapper")}>
+        <div onClick={(e) => e.stopPropagation()} className={cx("wrapper")}>
             <div className={cx("thumbnail-container")}>
                 <img src={product.image} alt="product" />
             </div>

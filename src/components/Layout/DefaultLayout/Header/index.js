@@ -5,7 +5,7 @@ import { faCartShopping, faCircleUser, faUserAstronaut } from "@fortawesome/free
 import { Link } from "react-router-dom";
 import Tippy from "@tippyjs/react/headless";
 import Search from "~/components/Search";
-import Navbar from "./Navbar";
+import Navbar from "../../../Navbar";
 import Popper from "~/components/Popper";
 import Menu from "~/components/Popper/Menu";
 import { AUTH_ITEMS } from "~/constant";
@@ -122,7 +122,7 @@ function Header() {
                 </div>
             </div>
             <nav className={cx("header-navbar")}>
-                <Navbar />
+                <Navbar data={[{ title: "Trang chủ", to: "/" }, { title: "Sản phẩm", to: "/product" }, { title: "Giới thiệu", to: "/about-us" }, { title: "Blog", to: "/blog" }]} />
             </nav>
         </header>
     );

@@ -3,9 +3,9 @@ import styles from "./Modal.module.scss";
 
 const cx = classNames.bind(styles);
 
-function Modal({ children }) {
+function Modal({ children, isShow }) {
     return (
-        <div className={cx("wrapper")}>
+        <div onClick={() => isShow(false)} className={cx("wrapper")}>
             {children}
         </div>
     );

@@ -30,7 +30,7 @@ function Button({ to, link = false, href, icon, className, primary = false, outl
 
     return (
         <Comp className={classes} {...props}>
-            {icon && <FontAwesomeIcon icon={icon} />}
+            {icon && <FontAwesomeIcon className={cx("icon")} icon={icon} />}
             <span>{children}</span>
             {selected && <div className={cx("tick-btn")}><FontAwesomeIcon icon={faCheck} /></div>}
         </Comp>

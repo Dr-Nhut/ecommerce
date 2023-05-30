@@ -92,7 +92,7 @@ function Product({ product }) {
 
             {showModal &&
                 createPortal(
-                    <Modal>
+                    <Modal isShow={setShowModal}>
                         <CartModal isShow={setShowModal} product={product}></CartModal>
                     </Modal>,
                     document.body

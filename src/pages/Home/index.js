@@ -2,9 +2,11 @@ import classNames from "classnames/bind";
 import styles from "./Home.module.scss";
 import Banner from "~/components/Layout/Banner";
 import Product from "~/components/Product";
-import {ProductContext} from "~/store";
-import { banner1, banner2, banner3, bag, jacket, tshirt, outstanding } from "~/assets/images";
+import { ProductContext } from "~/store";
+import { banner1, banner2, banner3, bag, jacket, tshirt, outstanding, bannerCentral } from "~/assets/images";
 import { useContext } from "react";
+import Button from "~/components/Button";
+import Tabs from "~/components/Tabs";
 const banner = [banner1, banner2, banner3];
 
 
@@ -31,12 +33,45 @@ function Home() {
                     </div>
 
                     <div className={cx("featured-product")}>
-                        {products.splice(0, 8).map((product, index) =>
+                        {products.filter(item => item.id <= 8).map((product, index) =>
                             <div key={index} className={cx("featured-product-item")}>
                                 <Product product={product} />
                             </div>
                         )}
                     </div>
+
+                    <div className={cx("more-product")}>
+                        <Button to="/product" primary>Xem tất cả</Button>
+                    </div>
+                </div>
+
+                <div className={cx("banner-central")}>
+                    <Banner data={[bannerCentral]} title="Chào hè với Astronaut" btnName="Xem ngay" btnTo="./product/astronaut" placement="center-left" />
+                </div>
+
+                <div className={cx("home-collection-product")}>
+                    <Tabs
+                        navs={[{ title: "Mới nhất" }, { title: "Bán chạy nhất" }, { title: "Siêu khuyến mãi" }]}
+                        outlet={
+                            [
+                                products.splice(0, 8).map((product, index) =>
+                                    <div key={index} className={cx("featured-product-item")}>
+                                        <Product product={product} />
+                                    </div>
+                                ),
+                                products.splice(0, 8).map((product, index) =>
+                                    <div key={index} className={cx("featured-product-item")}>
+                                        <Product product={product} />
+                                    </div>
+                                ),
+                                products.splice(0, 8).map((product, index) =>
+                                    <div key={index} className={cx("featured-product-item")}>
+                                        <Product product={product} />
+                                    </div>
+                                )
+                            ]
+                        }
+                    />
                 </div>
             </div>
         </div>
