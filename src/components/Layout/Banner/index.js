@@ -26,7 +26,7 @@ function Banner({ data, title, btnName, btnTo, placement = "center", penetration
             <img className={cx("banner-item")} src={data[index]} alt="banner" />
             <div className={btnClasses}>
                 <h1 className={cx("slogan")}>{title}</h1>
-                <Button className={cx("shop-now")} to={btnTo} outline size="large">{btnName}</Button>
+                {btnName ? <Button className={cx("shop-now")} to={btnTo} outline size="large">{btnName}</Button> : true}
             </div>
         </div>
 

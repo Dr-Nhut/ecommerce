@@ -1,58 +1,60 @@
 import classNames from "classnames/bind";
 import styles from "./Product.module.scss"
-import Button from "../Button";
+import Button from "~/components/Button";
+import Message from "~/components/Message";
+import Modal from "~/components/Modal";
+import CartModal from "~/components/Modal/CartModal";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye } from "@fortawesome/free-regular-svg-icons";
 import { faCartPlus, faHeart } from "@fortawesome/free-solid-svg-icons";
 import { useContext, useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import { FavouriteContext, actions } from "~/store";
-import Message from "../Message";
 import { SUCSESS } from "~/constant";
-import CartModal from "../Modal/CartModal";
-import Modal from "../Modal";
+
 const cx = classNames.bind(styles);
+
 function Product({ product }) {
+    const [state, dispatch] = useContext(FavouriteContext);
+
     const [showModal, setShowModal] = useState(false);
     const [messageFav, setMessageFav] = useState({
         isShow: false,
         message: ""
     });
-    const [state, dispatch] = useContext(FavouriteContext);
+
+    const classNameBtn = state[product.id] ? "active" : null;
+
     useEffect(() => {
         if (messageFav.isShow) {
-            setTimeout(() => {
+            const timerId = setTimeout(() => {
                 setMessageFav({
                     isShow: false,
                     message: ""
                 });
-            }, 5000);
+            }, 2000);
+            
+            return () => clearTimeout(timerId);
         }
-    }, [messageFav.isShow])
-    const classNameBtn = state[product.id] ? "active" : null;
-    var handleFav;
-    if (state[product.id] === 0) {
-        handleFav = () => {
+    }, [messageFav.isShow]);
+
+    const handleFav = () => {
+        if (state[product.id] === 0) {
             dispatch(actions.addToFavourite(product.id));
             setMessageFav({
                 isShow: true,
                 message: "Sản phẩm đã được thêm vào mục yêu thích"
             });
-        };
-    }
-    else {
-        handleFav = () => {
+        }
+        else {
             dispatch(actions.removeToFavourite(product.id));
             setMessageFav({
                 isShow: true,
                 message: "Sản phẩm đã được xóa khỏi mục yêu thích"
             });
-        };
+        }
     }
 
-    const handleShowModal = () => {
-        setShowModal(true);
-    }
     return (
         <div className={cx("wrapper")}>
             <div className={cx("container")}>
@@ -63,7 +65,7 @@ function Product({ product }) {
                     <span className={cx("product-name")}>{product.title}</span>
                     <div className={cx("product-price")}>
                         <span>{product.price}$</span>
-                        <span className={cx("product-compare-price")}><del>{product.comparePrice || "10"}$</del></span>
+                        <span className={cx("product-compare-price")}><del>{product.comparePrice || "10$"}$</del></span>
                     </div>
                 </div>
             </div>
@@ -76,7 +78,7 @@ function Product({ product }) {
                 <Button className={cx(classNameBtn)} onClick={() => handleFav()} square outline>
                     <FontAwesomeIcon icon={faHeart} />
                 </Button>
-                <Button onClick={() => handleShowModal()} square outline>
+                <Button onClick={() => setShowModal(true)} square outline>
                     <FontAwesomeIcon icon={faCartPlus} />
                 </Button>
                 <Button square outline>
@@ -99,8 +101,6 @@ function Product({ product }) {
                 )
             }
         </div >
-
-
     );
 }
 

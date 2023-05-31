@@ -6,8 +6,9 @@ import { faCheck } from "@fortawesome/free-solid-svg-icons";
 
 const cx = classNames.bind(styles);
 
-function Button({ to, link = false, href, icon, className, primary = false, outline = false, text = false, rounded = false, square = false, disabled = false, selected = false, onClick, children, size = 'medium', ...passProps }) {
+function Button({ to, href, icon, className, primary = false, outline = false, text = false, rounded = false, square = false, disabled = false, selected = false, onClick, children, size = 'medium', ...passProps }) {
     let Comp = 'button';
+    let link = false;
     const props = {
         onClick,
         ...passProps
@@ -24,6 +25,7 @@ function Button({ to, link = false, href, icon, className, primary = false, outl
     else if (href) {
         props.href = href;
         Comp = 'a';
+        link = 'true';
 
     }
     const classes = cx('wrapper', size, className, { primary, outline, text, rounded, disabled, square, link, selected });

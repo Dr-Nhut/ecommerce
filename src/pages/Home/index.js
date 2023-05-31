@@ -46,7 +46,7 @@ function Home() {
                 </div>
 
                 <div className={cx("banner-central")}>
-                    <Banner data={[bannerCentral]} title="Chào hè với Astronaut" btnName="Xem ngay" btnTo="./product/astronaut" placement="center-left" />
+                    <Banner data={[bannerCentral]} />
                 </div>
 
                 <div className={cx("home-collection-product")}>

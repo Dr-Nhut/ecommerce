@@ -1,20 +1,11 @@
 import classNames from "classnames/bind";
 import styles from "./Search.module.scss";
-
-//components
-import Popper from "~/components/Popper";
-import MenuProduct from "../Popper/MenuProduct";
-//Hooks
+import { MenuProduct } from "~/components/Popper";
 import { ProductContext } from "~/store";
 import { useState, useEffect, useRef, useContext } from "react";
-
-//Icons
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleXmark, faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
-
-//Tooltip
 import Tippy from '@tippyjs/react/headless';
-import 'tippy.js/themes/material.css';
 
 const cx = classNames.bind(styles);
 
@@ -32,7 +23,8 @@ function Search({ placeholder, className, rounded = false }) {
         if (valueInput) {
             setSearchResult(products.filter(product => product.title.includes(valueInput)));
         }
-    }, [valueInput, products])
+    }, [valueInput, products]);
+
     const handleInput = (value) => {
         setValueInput(value);
         if (value) {
@@ -40,7 +32,6 @@ function Search({ placeholder, className, rounded = false }) {
         }
         else {
             setHidden(true);
-            setValueInput("");
             setSearchResult(emptyArray);
         }
     }
@@ -58,30 +49,26 @@ function Search({ placeholder, className, rounded = false }) {
                 const render = [...products];
                 const anouncement = `Xem thêm ${products.length - 4} sản phẩm`;
                 return (
-                    <Popper>
-                        <MenuProduct title="Kết quả tìm kiếm" data={render.splice(0, 4)} anouncement={anouncement} to="/product" />
-                    </Popper>
+                    <MenuProduct title="Kết quả tìm kiếm" data={render.splice(0, 4)} anouncement={anouncement} to="/product" />
                 );
             }
             else {
                 if (products !== emptyArray) {
                     return (
-                        <Popper>
-                            <MenuProduct title="Kết quả tìm kiếm" data={products} />
-                        </Popper>
+                        <MenuProduct title="Kết quả tìm kiếm" data={products} />
                     )
                 }
             }
         }
         else {
             return (
-                <Popper>
-                    <MenuProduct title="Kết quả tìm kiếm" anouncement="Không tìm thấy sản phẩm nào" />
-                </Popper>
+                <MenuProduct title="Kết quả tìm kiếm" anouncement="Không tìm thấy sản phẩm nào" />
             );
         }
     }
+
     const classes = cx("wrapper", className, { rounded });
+    
     return (
         <div className={classes}>
             <Tippy

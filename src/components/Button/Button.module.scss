@@ -1,6 +1,5 @@
 .wrapper {
-    font-size: 1.6rem;
-    font-weight: 700;
+    font-size: 1.4rem;
     min-width: 100px;
     padding: 9px 16px;
     border-radius: 4px;
@@ -55,16 +54,18 @@
     user-select: none;
 }
 
+.large {
+    font-size: 1.6rem;
+    font-weight: 600;
+    padding: 14px 16px;
+    min-width: 140px;
+}
+
 .small {
     font-size: 1.2rem;
     font-weight: 400;
     min-width: 88px;
     padding: 8px 16px;
-}
-
-.large {
-    padding: 14px 16px;
-    min-width: 140px;
 }
 
 .micro {

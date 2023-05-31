@@ -1,0 +1,15 @@
+.container {
+    margin: 141px auto 0;
+    width: 1270px;
+    display: flex;
+}
+
+.sidebar {
+    width: 30%;
+    flex-grow: 1;
+}
+
+.content {
+    width: 70%;
+    flex-grow: 3;
+}

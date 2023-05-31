@@ -3,17 +3,15 @@ import styles from "./Header.module.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartShopping, faCircleUser, faUserAstronaut } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
+import { AUTH_ITEMS } from "~/constant";
 import Tippy from "@tippyjs/react/headless";
 import Search from "~/components/Search";
-import Navbar from "../../../Navbar";
-import Popper from "~/components/Popper";
-import Menu from "~/components/Popper/Menu";
-import { AUTH_ITEMS } from "~/constant";
+import Button from "~/components/Button";
+import Navbar from "~/components/Navbar";
+import {Menu, MenuProduct} from "~/components/Popper";
 import { faHeart } from "@fortawesome/free-regular-svg-icons";
 import { useContext } from "react";
 import { FavouriteContext, ProductContext } from "~/store";
-import MenuProduct from "~/components/Popper/MenuProduct";
-import Button from "~/components/Button";
 
 const cx = classNames.bind(styles);
 function Header() {
@@ -73,9 +71,7 @@ function Header() {
                             placement="bottom-end"
                             render={attrs => (
                                 <div className={cx("login-tippy", "user-tippy")} tabIndex="-1" {...attrs}>
-                                    <Popper>
-                                        <Menu data={AUTH_ITEMS} />
-                                    </Popper>
+                                    <Menu data={AUTH_ITEMS} />
                                 </div>
                             )}
                         >

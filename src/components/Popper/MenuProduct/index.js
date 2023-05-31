@@ -1,6 +1,6 @@
 import classNames from "classnames/bind";
 import styles from "./MenuProduct.module.scss"
-import ProductItem from "~/components/ProductItem";
+import ProductItem from "./ProductItem";
 
 const cx = classNames.bind(styles);
 
