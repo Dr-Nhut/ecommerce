@@ -7,7 +7,7 @@ import { useState } from "react";
 
 const cx = classNames.bind(styles);
 
-function Filter({ title, open = false }) {
+function Filter({ title, open = false, data }) {
     const [isShow, setShow] = useState(open);
     return (
         <div className={cx("wrapper")}>
@@ -18,7 +18,7 @@ function Filter({ title, open = false }) {
             </div>
             {isShow && (
                 <div className={cx("checkboxes-filter")}>
-                    <Checkboxes />
+                    <Checkboxes data={data}/>
                 </div>
             )}
         </div>

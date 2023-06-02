@@ -1,5 +1,4 @@
-export { default as ProductContext, FavouriteContext } from "./Context";
-export { default as ProductProvider } from "./ProductProvider";
-export { default as FavouriteProvider } from "./FavouriteProvider";
+export { ProductContext, FavouriteContext } from "./context";
+export { ProductProvider, FavouriteProvider } from "./provider";
 export * as actions from "./favouriteActions"
 export * as hooks from "./hooks";

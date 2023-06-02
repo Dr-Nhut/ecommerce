@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { publicRoutes } from '~/routes';
 import { DefaultLayout } from '~/components/Layout';
+import ScrollToTop from '~/components/ScrollToTop';
 function App() {
   const handlePublicPage = () => {
     return publicRoutes.map((route, index) => {
@@ -12,8 +13,9 @@ function App() {
 
   return (
     <Router>
+      <ScrollToTop  />
       <div className="App">
-        <Routes>
+        <Routes>      
           {handlePublicPage()}
         </Routes>
       </div>

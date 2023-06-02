@@ -1,0 +1,32 @@
+.wrapper {
+    width: 1270px;
+    margin: 0 auto;
+    padding-top: 10px ;
+}
+
+.header {
+    margin: 20px;
+    text-align: center;
+    font-weight: 700;
+    color: var(--dark-blue);
+
+    i {
+        font-size: 1.6rem;
+    }
+}
+
+.content {
+    padding: 9px 16px;
+
+    p {
+        text-align: justify;
+        font-size: 2rem;
+        text-indent: 28px;
+        color: var(--dark-blue);
+        margin: 20px 0;
+    }
+}
+
+.content-img {
+    height: 500px;
+}
