@@ -18,10 +18,10 @@ function Sidebar() {
                 {filters.map((item, index) => <Button primary key={index}>{item.value}</Button>)}
             </div>
 
-            <Filter title="Mức giá" data={prices} open/>
+            <Filter checkbox title="Mức giá" data={prices} open/>
 
-            <Filter title="Mức giá" data={sizes} />
-            <Filter title="Mức giá" data={categories}/>
+            <Filter checkbox title="Kích thước" data={sizes} />
+            <Filter checkbox title="Loại" data={categories}/>
         </div>
     );
 }

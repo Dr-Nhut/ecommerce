@@ -44,26 +44,6 @@
     font-weight: bold;
 }
 
-.rating-star {
-    position: relative;
-    white-space: nowrap;
-    background-color: var(--primary);
-}
-
-.star {
-    color: gold;
-}
-
-.overlay {
-    background: var(--primary);
-    height: 100%;
-    overflow: hidden;
-    mix-blend-mode: color;
-    position: absolute;
-    top: 0;
-    right: 0;
-}
-
 .close-btn {
     padding: 8px;
     font-size: 2.6rem;

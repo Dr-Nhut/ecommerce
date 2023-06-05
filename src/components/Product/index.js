@@ -81,7 +81,7 @@ function Product({ product }) {
                 <Button onClick={() => setShowModal(true)} square outline>
                     <FontAwesomeIcon icon={faCartPlus} />
                 </Button>
-                <Button square outline>
+                <Button square outline to={`/product/${product.id}`}>
                     <FontAwesomeIcon icon={faEye} />
                 </Button>
             </div>

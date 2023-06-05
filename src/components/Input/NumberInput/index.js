@@ -7,7 +7,7 @@ import { faMinus, faPlus } from "@fortawesome/free-solid-svg-icons";
 
 const cx = hooks.useStyles(styles);
 
-function Number({ data }) {
+function NumberInput() {
     const [value, setValue] = useState(1);
 
     const handleValue = (value) => {
@@ -34,4 +34,4 @@ function Number({ data }) {
     );
 }
 
-export default Number;
+export default NumberInput;

@@ -17,7 +17,7 @@ export const INFO = "info"
 export const WARN = "warn"
 export const ERROR = "error"
 
-export const prices =[
+export const prices = [
     {
         type: "price",
         name: "price-1",
@@ -45,11 +45,26 @@ export const prices =[
     }
 ];
 
-export const sizes = [{ type:"size", name: "S", value: "Size S" }, { type: "size", name: "M", value: "Size M" }, { type: "size", name: "L", value: "Size L" }];
+export const sizes = [{ type: "size", name: "S", value: "Size S" }, { type: "size", name: "M", value: "Size M" }, { type: "size", name: "L", value: "Size L" }];
 
 export const categories = [
     { type: "category", name: "men's clothing", value: "Thời trang nam" },
     { type: "category", name: "jewelery", value: "Trang sức" },
     { type: "category", name: "electronics", value: "Điện tử" },
     { type: "category", name: "women's clothing", value: "Thời trang nữ" },
+];
+
+
+export const colorsRadio = [
+    "Trắng tay đen",
+    "Be tay nâu",
+    "Trắng tay xanh",
+    "Xám tay đen"
+];
+
+export const sizesRadio = [
+    "S",
+    "M",
+    "L",
+    "XL"
 ]

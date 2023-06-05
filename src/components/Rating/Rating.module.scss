@@ -1,0 +1,19 @@
+.wrapper {
+    position: relative;
+    white-space: nowrap;
+    background-color: var(--primary);
+}
+
+.item {
+    color: gold;
+}
+
+.overlay {
+    background: var(--primary);
+    height: 100%;
+    overflow: hidden;
+    mix-blend-mode: color;
+    position: absolute;
+    top: 0;
+    right: 0;
+}

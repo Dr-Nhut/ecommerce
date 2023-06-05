@@ -2,25 +2,12 @@ import classNames from "classnames/bind";
 import styles from "./CartModal.module.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Button from "~/components/Button";
-import { faCartPlus, faClose, faStar} from "@fortawesome/free-solid-svg-icons";
+import { faCartPlus, faClose } from "@fortawesome/free-solid-svg-icons";
 import { NumberInput, RadioInput } from "~/components/Input";
+import { colorsRadio, sizesRadio } from "~/constant";
+import Rating from "~/components/Rating";
 
 const cx = classNames.bind(styles);
-
-
-const colors = [
-    "Trắng tay đen",
-    "Be tay nâu",
-    "Trắng tay xanh",
-    "Xám tay đen"
-]
-
-const sizes = [
-    "S",
-    "M",
-    "L",
-    "XL"
-]
 
 function CartModal({ product, isShow }) {
     const startsWidth = 100 - product.rating.rate * 20;
@@ -36,14 +23,7 @@ function CartModal({ product, isShow }) {
                         <h3 className={cx("title")}>{product.title}</h3>
                         <div className={cx("rating")}>
                             <span className={cx("rating-number")}>{product.rating.rate}</span>
-                            <div className={cx("rating-star")}>
-                                <FontAwesomeIcon className={cx("star")} icon={faStar} />
-                                <FontAwesomeIcon className={cx("star")} icon={faStar} />
-                                <FontAwesomeIcon className={cx("star")} icon={faStar} />
-                                <FontAwesomeIcon className={cx("star")} icon={faStar} />
-                                <FontAwesomeIcon className={cx("star")} icon={faStar} />
-                                <div className={cx("overlay")} style={{width: `${startsWidth}%`}}></div>
-                            </div>
+                            <Rating startsWidth={startsWidth} />
                         </div>
                     </div>
                     <div className={cx("close-btn")} onClick={() => isShow(false)}>
@@ -58,14 +38,14 @@ function CartModal({ product, isShow }) {
                 <div className={cx("color")}>
                     <p>Màu sắc</p>
                     <div className={cx("color-radio")}>
-                        <RadioInput data={colors} />
+                        <RadioInput data={colorsRadio} />
                     </div>
                 </div>
 
                 <div className={cx("size")}>
                     <p>Size</p>
                     <div className={cx("color-radio")}>
-                        <RadioInput data={sizes} />
+                        <RadioInput data={sizesRadio} />
                     </div>
                 </div>
 

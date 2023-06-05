@@ -1,5 +1,6 @@
 import Home from "~/pages/Home";
 import Product from "~/pages/Product";
+import ProductDetail from "~/pages/ProductDetail";
 import Blog from "~/pages/Blog";
 import About from "~/pages/About";
 import SidebarLayout from "~/components/Layout/SidebarLayout";
@@ -14,6 +15,10 @@ const publicRoutes = [
         path: '/product',
         component: Product,
         layout: SidebarLayout,
+    },
+    {
+        path: '/product/:productId',
+        component: ProductDetail,
     },
     {
         path: '/blog',
