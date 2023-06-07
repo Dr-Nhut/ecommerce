@@ -3,9 +3,10 @@ import styles from "./CartModal.module.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Button from "~/components/Button";
 import { faCartPlus, faClose } from "@fortawesome/free-solid-svg-icons";
-import { NumberInput, RadioInput } from "~/components/Input";
 import { colorsRadio, sizesRadio } from "~/constant";
 import Rating from "~/components/Rating";
+import Radio from "~/components/Radio";
+import Counter from "~/components/Counter";
 
 const cx = classNames.bind(styles);
 
@@ -38,20 +39,20 @@ function CartModal({ product, isShow }) {
                 <div className={cx("color")}>
                     <p>Màu sắc</p>
                     <div className={cx("color-radio")}>
-                        <RadioInput data={colorsRadio} />
+                        <Radio data={colorsRadio} />
                     </div>
                 </div>
 
                 <div className={cx("size")}>
                     <p>Size</p>
                     <div className={cx("color-radio")}>
-                        <RadioInput data={sizesRadio} />
+                        <Radio data={sizesRadio} />
                     </div>
                 </div>
 
                 <div className={cx("quantity")}>
                     <p>Số lượng</p>
-                    <NumberInput />
+                    <Counter />
                 </div>
 
                 <div className={cx("footer")}>

@@ -64,8 +64,6 @@ function Header() {
                     <div className={cx("hc-user")}>
 
                         <Tippy
-                            trigger="click"
-                            hideOnClick={true}
                             maxWidth="none"
                             interactive
                             placement="bottom-end"

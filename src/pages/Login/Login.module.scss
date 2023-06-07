@@ -1,0 +1,19 @@
+.wrapper {
+    width: 764px;
+    margin: 0 auto;
+    padding: 80px;
+}
+
+.title {
+    margin-bottom: 20px;
+    color: var(--dark-blue);
+    font-size: 2.8rem;
+    font-weight: 600;
+    padding: 8px;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.option > * {
+    padding: 4px 0;
+}

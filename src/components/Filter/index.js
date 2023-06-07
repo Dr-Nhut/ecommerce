@@ -2,8 +2,8 @@ import classNames from "classnames/bind";
 import styles from "./Filter.module.scss";
 import { faChevronDown, faChevronUp } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Checkboxes } from "~/components/Input";
 import { useState } from "react";
+import Checkboxes from "~/components/Checkboxes";
 
 const cx = classNames.bind(styles);
 

@@ -7,10 +7,11 @@ import Button from "~/components/Button";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart } from "@fortawesome/free-regular-svg-icons";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
-import { NumberInput, RadioInput } from "~/components/Input";
 import { colorsRadio, sizesRadio } from "~/constant";
 import Rating from "~/components/Rating";
 import Filter from "~/components/Filter";
+import Radio from "~/components/Radio";
+import Counter from "~/components/Counter";
 
 const cx = classNames.bind(styles);
 
@@ -49,17 +50,17 @@ function ProductDetail() {
                 </div>
                 <div className={cx("color")}>
                     <span>Màu sắc</span>
-                    <RadioInput data={colorsRadio} />
+                    <Radio data={colorsRadio} />
                 </div>
 
                 <div className={cx("size")}>
                     <span>Kích thước</span>
-                    <RadioInput data={sizesRadio} />
+                    <Radio data={sizesRadio} />
                 </div>
 
                 <div className={cx("quantity")}>
                     <span>Số lượng</span>
-                    <NumberInput />
+                    <Counter />
                 </div>
 
                 <div className={cx("product-detail-btn")}>
@@ -68,7 +69,7 @@ function ProductDetail() {
                 </div>
 
                 <div className={cx("extend-product")}>
-                    <Filter title="Chi tiết sản phẩm" data={product.description}/>
+                    <Filter title="Chi tiết sản phẩm" data={product.description} />
                     <Filter title="Bảng chọn Size" data="size"></Filter>
                 </div>
             </div>

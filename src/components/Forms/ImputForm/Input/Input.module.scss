@@ -1,0 +1,35 @@
+.wrapper {
+    position: relative;
+    margin-bottom: 28px;
+}
+
+.label {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--dark-blue);
+    cursor: auto;
+    transition: 1s;
+    pointer-events: none;
+}
+
+.input {
+    height: 36px;
+    width: 100%;
+    padding: 8px;
+    font-size: 1.6rem;
+    color: var(--dark-blue);
+    border-bottom: 2px solid var(--primary);
+    outline: none;
+    letter-spacing: 1px;
+    background: transparent;
+}
+
+.input:focus ~ .label, .valid {
+    top: -12px;
+    left: 0;
+    font-size: 1.4rem;
+}
+
