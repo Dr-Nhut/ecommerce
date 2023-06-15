@@ -1,8 +1,7 @@
 import classNames from "classnames/bind";
 import styles from "./Header.module.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCartShopping, faCircleUser, faUserAstronaut } from "@fortawesome/free-solid-svg-icons";
-import { Link } from "react-router-dom";
+import { faCartShopping, faCircleUser } from "@fortawesome/free-solid-svg-icons";
 import { AUTH_ITEMS } from "~/constant";
 import Tippy from "@tippyjs/react/headless";
 import Search from "~/components/Search";
@@ -12,6 +11,7 @@ import {Menu, MenuProduct} from "~/components/Popper";
 import { faHeart } from "@fortawesome/free-regular-svg-icons";
 import { useContext } from "react";
 import { FavouriteContext, ProductContext } from "~/store";
+import Logo from "~/components/Common/Logo";
 
 const cx = classNames.bind(styles);
 function Header() {
@@ -50,12 +50,7 @@ function Header() {
         <header className={cx("wrapper")}>
             <div className={cx("header-upper")}>
                 <div className={cx("header-content")}>
-                    <div className={cx("hc-logo")}>
-                        <Link className={cx("hc-logo-link")} to="/">
-                            <FontAwesomeIcon className={cx("logo-icon")} icon={faUserAstronaut} />
-                            <h1>Astronaut</h1>
-                        </Link>
-                    </div>
+                    <Logo title="Astronaut" />
 
                     <div className={cx("hc-search")}>
                         <Search rounded placeholder="Tìm kiếm sản phẩm" />

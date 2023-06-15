@@ -11,11 +11,27 @@
     padding: 16px;
 }
 
+.icon {
+    margin-right: 8px;
+    width: 18px;
+    height: 18px;
+}
+
 .item-link {
     text-decoration: none;
     font-size: 1.8rem;
+    color: var(--dark-blue);
 
     &:active {
         color: var(--dark-blue);
     }
+}
+
+//size
+.medium {
+    padding: 9px 0;
+}
+
+.large {
+    padding: 16px 8px;
 }

@@ -6,6 +6,10 @@ import About from "~/pages/About";
 import SidebarLayout from "~/components/Layout/SidebarLayout";
 import Login from "~/pages/Login";
 import Register from "~/pages/Register";
+import BlogDetail from "~/pages/BlogDetail";
+import Admin from "~/pages/Admin";
+import ProductManager from "~/pages/Admin/Product";
+import CreateProduct from "~/pages/Admin/CreateProduct";
 
 const publicRoutes = [
     // Route not login
@@ -24,7 +28,10 @@ const publicRoutes = [
     {
         path: '/product',
         component: Product,
-        layout: SidebarLayout,
+        layout: {
+            name: SidebarLayout,
+            comp: 0
+        },
     },
     {
         path: '/product/:productId',
@@ -33,7 +40,14 @@ const publicRoutes = [
     {
         path: '/blog',
         component: Blog,
-        layout: SidebarLayout,
+        layout: {
+            name: SidebarLayout,
+            comp: 1
+        },
+    },
+    {
+        path: '/blog/:blogId',
+        component: BlogDetail,
     },
     {
         path: '/about-us',
@@ -43,6 +57,19 @@ const publicRoutes = [
 
 const privateRoutes = [
     // Route need login
+    {
+        path: '/admin',
+        component: Admin,
+    },
+    {
+        path: '/admin/products',
+        component: ProductManager,
+    },
+    {
+        path: '/admin/products/create-product',
+        component: CreateProduct,
+    }
+
 ]
 
 export { publicRoutes, privateRoutes }

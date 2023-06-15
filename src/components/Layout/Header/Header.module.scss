@@ -22,28 +22,6 @@
     align-items: center;
 }
 
-.hc-logo {
-    color: var(--dark-blue);
-    text-shadow: 2px 2px rgba(5, 56, 107, 0.6);
-}
-
-.hc-logo-link {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    text-decoration: none;
-
-    &:active {
-        color: var(--dark-blue);
-        text-shadow: 2px 2px rgba(5, 56, 107, 0.6);
-    }
-}
-
-.logo-icon {
-    font-size: 4rem;
-    padding: 8px;
-}
-
 .hc-search {
     width: 500px;
     height: 40px;

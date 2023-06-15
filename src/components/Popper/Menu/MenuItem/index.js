@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
 const cx = classNames.bind(styles);
 
-function MenuItem({ data }) {
+function MenuItem({ data, size }) {
     let Comp = "div";
     let classLink;
     const props = {}
@@ -14,9 +14,9 @@ function MenuItem({ data }) {
         Comp = Link;
     }
     return (
-        <li className={cx("wrapper")}>
+        <li className={cx("wrapper", size)}>
             <Comp className={cx("item", classLink)} {...props}>
-                {data.icon && <FontAwesomeIcon icon={data.icon} />}
+                {data.icon && <FontAwesomeIcon className={cx("icon")} icon={data.icon} />}
                 <span>{data.title}</span>
             </Comp>
         </li>

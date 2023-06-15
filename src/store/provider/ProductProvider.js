@@ -6,12 +6,12 @@ function ProductProvider({ children }) {
 
 
     useLayoutEffect(() => {
-        fetch("https://fakestoreapi.com/products")
+        fetch("https://dummyjson.com/products")
             .then(response => {
                 return response.json()
             })
             .then(data => {
-                setProducts(data)
+                setProducts(data.products)
             })
     }, []);
     if (Array.isArray(products) && products.length === 0) {

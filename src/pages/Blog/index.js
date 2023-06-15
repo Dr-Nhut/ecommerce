@@ -7,6 +7,7 @@ const cx = classNames.bind(styles);
 function Blog() {
     return (
         <div className={cx("wrapper")}>
+            <h1 className={cx("title")}>Tất cả bài viết</h1>
             <BlogList />
         </div>
     );

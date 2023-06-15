@@ -26,7 +26,7 @@ function ProductDetail() {
     return (
         <div className={cx("wrapper")}>
             <div className={cx("thumbnail")}>
-                <img src={product.image} alt="Thumbnail"></img>
+                <img src={product.thumbnail} alt="Thumbnail"></img>
             </div>
 
             <div className={cx("info")}>

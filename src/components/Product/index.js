@@ -59,7 +59,7 @@ function Product({ product }) {
         <div className={cx("wrapper")}>
             <div className={cx("container")}>
                 <div className={cx("product-img")}>
-                    <img src={product.image} alt="product" />
+                    <img src={product.thumbnail} alt="product" />
                 </div>
                 <div className={cx("product-info")}>
                     <span className={cx("product-name")}>{product.title}</span>

@@ -2,8 +2,8 @@ import classNames from "classnames/bind";
 import styles from "./Blog.module.scss";
 
 const cx = classNames.bind(styles);
-function Blog({data}) {
-    return ( 
+function Blog({ data }) {
+    return (
         <>
             <div className={cx("thumbnail")}>
                 <img src={data.image} alt="Blog News" />
@@ -16,7 +16,7 @@ function Blog({data}) {
                 </div>
             </div>
         </>
-     );
+    );
 }
 
 export default Blog;

@@ -1,5 +1,5 @@
 import classNames from "classnames/bind";
-import styles from "./Sidebar.module.scss";
+import styles from "./FilterSidebar.module.scss";
 import Filter from "~/components/Filter";
 import Button from "~/components/Button";
 import { FilterContext } from "~/store/context";
@@ -8,7 +8,7 @@ import { categories, prices, sizes } from "~/constant";
 const cx = classNames.bind(styles);
 
 
-function Sidebar() {
+function FilterSidebar() {
     const [filters] = useContext(FilterContext);
     return (
         <div className={cx("wrapper")}>
@@ -26,4 +26,4 @@ function Sidebar() {
     );
 }
 
-export default Sidebar;
+export default FilterSidebar;

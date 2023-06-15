@@ -6,7 +6,7 @@ import { ProductContext } from "~/store";
 import { banner1, banner2, banner3, bag, jacket, tshirt, outstanding, bannerCentral } from "~/assets/images";
 import { useContext } from "react";
 import Button from "~/components/Button";
-import Tabs from "~/components/Tabs";
+import Tabs from "~/components/Common/Tabs";
 const banner = [banner1, banner2, banner3];
 
 

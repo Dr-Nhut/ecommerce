@@ -1,3 +1,5 @@
+import { faCartShopping, faComments, faGauge, faGear, faLayerGroup, faStore, faUsers } from "@fortawesome/free-solid-svg-icons"
+
 export const AUTH_ITEMS = [
     {
         title: "Đăng nhập",
@@ -7,6 +9,44 @@ export const AUTH_ITEMS = [
         title: "Đăng ký",
         to: "/register"
     }
+]
+
+export const DASHBOARD_ITEMS = [
+    {
+        title: "Bảng điều khiển",
+        to: "/admin",
+        icon: faGauge
+    },
+    {
+        title: "Đơn đặt hàng",
+        to: "/admin/orders",
+        icon: faCartShopping
+    },
+    {
+        title: "Sản phẩm",
+        to: "/admin/products",
+        icon: faStore
+    },
+    {
+        title: "Danh mục sản phẩm",
+        to: "/admin/categories",
+        icon: faLayerGroup
+    },
+    {
+        title: "Khách hàng",
+        to: "/admin/customers",
+        icon: faUsers
+    },
+    {
+        title: "Đánh giá",
+        to: "/admin/reviews",
+        icon: faComments
+    },
+    {
+        title: "Cài đặt",
+        to: "/admin/setting",
+        icon: faGear
+    },
 ]
 
 
