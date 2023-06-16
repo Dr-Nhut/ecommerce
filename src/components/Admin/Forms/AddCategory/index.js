@@ -2,8 +2,8 @@ import classNames from 'classnames/bind';
 import styles from '~/components/Admin/Forms/AddProduct/AddProduct.module.scss';
 import { useEffect, useRef, useState } from 'react';
 import axios from 'axios';
-import Message from '~/components/Message';
-import { ERROR, SUCSESS } from '~/constant';
+import Message from '~/components/Portal/Message';
+import { ERROR, SUCCESS } from '~/constant';
 import { createPortal } from 'react-dom';
 
 const cx = classNames.bind(styles);
@@ -12,17 +12,11 @@ function AddCategory() {
     const [name, setName] = useState("");
     const [thumbnail, setThumbnail] = useState(null);
     const [desc, setDesc] = useState("");
-    const [showMessage, setShowMessage] = useState({
-        isShow: false,
-        message: ""
-    });
+    const [showMessage, setShowMessage] = useState('');
 
     useEffect(() => {
         const timerId = setTimeout(() => {
-            setShowMessage({
-                isShow: false,
-                message: ""
-            });
+            setShowMessage('');
         }, 2000)
 
         return () => clearTimeout(timerId);
@@ -50,7 +44,7 @@ function AddCategory() {
                     inputFileRef.current.value = "";
                     setDesc("");
                     setShowMessage({
-                        type: SUCSESS,
+                        type: SUCCESS,
                         isShow: true,
                         message: response.data.message
                     });

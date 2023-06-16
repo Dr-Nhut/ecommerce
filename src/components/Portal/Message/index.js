@@ -1,7 +1,7 @@
 import classNames from "classnames/bind";
 import styles from "./Message.module.scss";
 
-import { SUCSESS, INFO, WARN, ERROR } from "~/constant";
+import { INFO, WARN, ERROR, SUCCESS } from "~/constant";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleCheck, faCircleExclamation, faTriangleExclamation, faCircleInfo } from "@fortawesome/free-solid-svg-icons"
 
@@ -10,7 +10,7 @@ const cx = classNames.bind(styles);
 function Message({ type = { INFO }, message }) {
     let icon;
     switch (type) {
-        case SUCSESS:
+        case SUCCESS:
             icon = faCircleCheck
             break;
         case WARN:

@@ -1,6 +1,6 @@
 import classNames from "classnames/bind";
 import styles from "./Radio.module.scss"
-import Button from "~/components/Button";
+import Button from "~/components/Common/Button";
 import { useState } from "react";
 
 const cx = classNames.bind(styles);

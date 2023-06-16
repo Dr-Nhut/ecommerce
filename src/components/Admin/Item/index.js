@@ -1,11 +1,25 @@
 import classNames from "classnames/bind";
 import styles from "./Item.module.scss";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEdit, faTrash } from "@fortawesome/free-solid-svg-icons";
-import { Link } from "react-router-dom";
+import Button from "~/components/Common/Button";
+import { useEffect, useState } from "react";
+import Alert from "~/components/Portal/Alert";
+import { createPortal } from "react-dom";
+import Modal from "~/components/Modal";
+import Message from "~/components/Portal/Message";
 
 const cx = classNames.bind(styles);
-function Item({ value }) {
+function Item({ value, onDelete }) {
+    const [showMessage, setShowMessage] = useState('');
+    const [showPortal, setShowPortal] = useState(false);
+
+    useEffect(() => {
+        const timerId = setTimeout(() => {
+            setShowMessage('');
+        }, 2000)
+
+        return () => clearTimeout(timerId);
+    }, [showMessage]);
     return (
         <div className={cx("wrapper")}>
             <img className={cx("thumbnail")} src={`http://localhost:5000/${value.thumbnail}`} alt="thumbnail" />
@@ -14,13 +28,23 @@ function Item({ value }) {
                 {value.name}
             </div>
             <div className={cx("footer")} >
-                <Link className={cx("action")} to={`./${value.idcategory}/edit`}>
-                    <FontAwesomeIcon icon={faEdit} />
-                </Link>
-                <Link className={cx("action")} to={`./delete`}>
-                    <FontAwesomeIcon icon={faTrash} />
-                </Link>
+                <Button className={cx("action")} size="small" onlyIcon={true} icon={faEdit} to={`./${value.idcategory}/edit`}>
+                </Button>
+                <Button className={cx("action")} onlyIcon={true} icon={faTrash} onClick={() => setShowPortal(true)}>
+                </Button>
             </div>
+
+            {showPortal && createPortal(
+                <Modal isShow={setShowPortal}>
+                    <Alert onDelete={onDelete} isShow={setShowPortal} message={`Bạn có chắc muốn xóa ${value.name} không?`} id={value.idcategory} isShowMessage={setShowMessage} />
+                </Modal>,
+                document.body
+            )}
+
+            {showMessage.isShow && createPortal(
+                <Message type={showMessage.status} message={showMessage.message} />,
+                document.body
+            )}
         </div>
     );
 }

@@ -3,8 +3,8 @@ import styles from '~/components/Admin/AddOption/AddOption.module.scss';
 import AddOption from '~/components/Admin/AddOption';
 import { useEffect, useRef, useState } from 'react';
 import axios from 'axios';
-import Message from '~/components/Message';
-import { ERROR, SUCSESS } from '~/constant';
+import Message from '~/components/Portal/Message';
+import { ERROR, SUCCESS } from '~/constant';
 import { createPortal } from 'react-dom';
 
 const cx = classNames.bind(styles);
@@ -15,17 +15,11 @@ function AddProduct() {
     const [price, setPrice] = useState(0);
     const [thumbnails, setThumbnails] = useState(null);
     const [desc, setDesc] = useState("");
-    const [showMessage, setShowMessage] = useState({
-        isShow: false,
-        message: ""
-    });
+    const [showMessage, setShowMessage] = useState('');
 
     useEffect(() => {
         const timerId = setTimeout(() => {
-            setShowMessage({
-                isShow: false,
-                message: ""
-            });
+            setShowMessage('');
         }, 2000)
 
         return () => clearTimeout(timerId);
@@ -56,7 +50,7 @@ function AddProduct() {
             method: "post",
             url: "http://localhost:5000/api/products",
             data: formData,
-            headers: {'content-type': 'multipart/form-data'},
+            headers: { 'content-type': 'multipart/form-data' },
         })
             .then((response) => {
                 console.log("Response ", response);
@@ -68,7 +62,7 @@ function AddProduct() {
                     inputFileRef.current.value = "";
                     setDesc("");
                     setShowMessage({
-                        type: SUCSESS,
+                        type: SUCCESS,
                         isShow: true,
                         message: response.data.message
                     });

@@ -1,6 +1,6 @@
 import classNames from "classnames/bind";
 import styles from "./Tabs.module.scss";
-import NavBar from "../../Navbar";
+import NavBar from "../Navbar";
 import { useState } from "react";
 
 const cx = classNames.bind(styles);

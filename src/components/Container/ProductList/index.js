@@ -1,6 +1,6 @@
 import classNames from "classnames/bind";
 import styles from "./ProductList.module.scss";
-import Product from "~/components/Product";
+import Product from "~/components/Container/Product";
 
 const cx = classNames.bind(styles);
 

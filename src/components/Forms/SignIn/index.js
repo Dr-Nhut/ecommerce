@@ -1,6 +1,6 @@
 import classNames from "classnames/bind";
 import styles from "./SignIn.module.scss"
-import Button from "~/components/Button";
+import Button from "~/components/Common/Button";
 import { Input } from "~/components/Forms/ImputForm";
 import { useState } from "react";
 

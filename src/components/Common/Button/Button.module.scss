@@ -29,6 +29,17 @@
     }
 }
 
+.destroy {
+    color: var(--white-green);
+    background-color: var(--red-one);
+    border-color: var(--red-one);
+    &:hover {
+        border-color: rgba(255,0,0, 0.6 );
+        background: rgba(255,0,0, 0.6 );
+
+    }
+}
+
 .outline {
     color: var(--white);
     border-color: var(--white);
@@ -42,7 +53,6 @@
 
 .text {
     border-color: rgba(22, 24, 35, 0.12);
-    border-radius: 0;
     &:hover {
         background-color: rgba(22, 24, 35, 0.03);
     }
@@ -112,6 +122,10 @@
 
 .icon {
     padding-right: 5px;
+}
+
+.onlyIcon {
+    text-align: center;
 }
 
 //class

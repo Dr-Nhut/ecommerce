@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { publicRoutes, privateRoutes } from '~/routes';
 import { DefaultLayout } from '~/components/Layout';
-import ScrollToTop from '~/components/ScrollToTop';
+import ScrollToTop from '~/components/Common/ScrollToTop';
 import { AdminLayout } from '~/components/Admin';
 function App() {
   const handlePublicPage = () => {

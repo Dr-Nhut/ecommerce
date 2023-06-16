@@ -1,7 +1,7 @@
 import classNames from "classnames/bind";
 import styles from "./CartModal.module.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import Button from "~/components/Button";
+import Button from "~/components/Common/Button";
 import { faCartPlus, faClose } from "@fortawesome/free-solid-svg-icons";
 import { colorsRadio, sizesRadio } from "~/constant";
 import Rating from "~/components/Rating";

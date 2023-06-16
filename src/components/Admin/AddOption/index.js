@@ -1,11 +1,11 @@
 import classNames from "classnames/bind";
 import styles from "./AddOption.module.scss";
 import Counter from "~/components/Counter";
-import Button from "~/components/Button";
+import Button from "~/components/Common/Button";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import { useEffect, useState } from "react";
-import Message from "~/components/Message";
+import Message from "~/components/Portal/Message";
 import { ERROR } from "~/constant";
 
 const cx = classNames.bind(styles);

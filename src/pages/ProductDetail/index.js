@@ -3,7 +3,7 @@ import styles from "./ProductDetail.module.scss";
 import { useContext } from "react";
 import { Link, useParams } from "react-router-dom";
 import { ProductContext } from "~/store";
-import Button from "~/components/Button";
+import Button from "~/components/Common/Button";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart } from "@fortawesome/free-regular-svg-icons";
 import { faStar } from "@fortawesome/free-solid-svg-icons";

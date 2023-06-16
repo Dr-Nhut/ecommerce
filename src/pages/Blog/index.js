@@ -1,6 +1,6 @@
 import classNames from "classnames/bind";
 import styles from "./Blog.module.scss";
-import BlogList from "~/components/BlogList";
+import BlogList from "~/components/Container/BlogList";
 
 const cx = classNames.bind(styles);
 

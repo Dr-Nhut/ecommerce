@@ -1,7 +1,7 @@
 import classNames from "classnames/bind";
 import styles from "./FilterSidebar.module.scss";
 import Filter from "~/components/Filter";
-import Button from "~/components/Button";
+import Button from "~/components/Common/Button";
 import { FilterContext } from "~/store/context";
 import { useContext } from "react";
 import { categories, prices, sizes } from "~/constant";
@@ -18,10 +18,10 @@ function FilterSidebar() {
                 {filters.map((item, index) => <Button primary key={index}>{item.value}</Button>)}
             </div>
 
-            <Filter checkbox title="Mức giá" data={prices} open/>
+            <Filter checkbox title="Mức giá" data={prices} open />
 
             <Filter checkbox title="Kích thước" data={sizes} />
-            <Filter checkbox title="Loại" data={categories}/>
+            <Filter checkbox title="Loại" data={categories} />
         </div>
     );
 }

@@ -1,11 +1,11 @@
 import classNames from "classnames/bind";
 import styles from "./Home.module.scss";
 import Banner from "~/components/Layout/Banner";
-import Product from "~/components/Product";
+import Product from "~/components/Container/Product";
 import { ProductContext } from "~/store";
 import { banner1, banner2, banner3, bag, jacket, tshirt, outstanding, bannerCentral } from "~/assets/images";
 import { useContext } from "react";
-import Button from "~/components/Button";
+import Button from "~/components/Common/Button";
 import Tabs from "~/components/Common/Tabs";
 const banner = [banner1, banner2, banner3];
 

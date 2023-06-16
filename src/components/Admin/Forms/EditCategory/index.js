@@ -2,10 +2,10 @@ import classNames from 'classnames/bind';
 import styles from '~/components/Admin/Forms/AddProduct/AddProduct.module.scss';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-import Message from '~/components/Message';
+import Message from '~/components/Portal/Message';
 import { createPortal } from 'react-dom';
 import { useParams } from 'react-router-dom';
-import { ERROR, SUCSESS } from '~/constant';
+import { ERROR, SUCCESS } from '~/constant';
 
 const cx = classNames.bind(styles);
 
@@ -15,17 +15,11 @@ function EditCategory() {
     const [thumbnail, setThumbnail] = useState(null);
     const [image, setImage] = useState(null);
     const [desc, setDesc] = useState("");
-    const [showMessage, setShowMessage] = useState({
-        isShow: false,
-        message: ""
-    });
+    const [showMessage, setShowMessage] = useState('');
 
     useEffect(() => {
         const timerId = setTimeout(() => {
-            setShowMessage({
-                isShow: false,
-                message: ""
-            })
+            setShowMessage('')
         }, 2000);
 
         return () => clearTimeout(timerId);
@@ -63,7 +57,7 @@ function EditCategory() {
             .then((response) => {
                 if (response.data.status !== 'ERROR') {
                     setShowMessage({
-                        type: SUCSESS,
+                        type: SUCCESS,
                         isShow: true,
                         message: response.data.message
                     });

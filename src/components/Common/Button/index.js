@@ -6,7 +6,7 @@ import { faCheck } from "@fortawesome/free-solid-svg-icons";
 
 const cx = classNames.bind(styles);
 
-function Button({ to, href, icon, className, primary = false, outline = false, text = false, rounded = false, square = false, disabled = false, selected = false, onClick, children, size = 'medium', ...passProps }) {
+function Button({ to, href, icon, className, onlyIcon = false, primary = false, destroy = false, outline = false, text = false, rounded = false, square = false, disabled = false, selected = false, onClick, children, size = 'medium', ...passProps }) {
     let Comp = 'button';
     let link = false;
     const props = {
@@ -28,7 +28,7 @@ function Button({ to, href, icon, className, primary = false, outline = false, t
         link = 'true';
 
     }
-    const classes = cx('wrapper', size, className, { primary, outline, text, rounded, disabled, square, link, selected });
+    const classes = cx('wrapper', size, className, { primary, outline, destroy, text, rounded, disabled, square, link, selected, onlyIcon });
 
     return (
         <Comp className={classes} {...props}>

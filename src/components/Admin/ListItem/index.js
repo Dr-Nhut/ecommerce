@@ -6,6 +6,7 @@ import axios from "axios";
 
 const cx = classNames.bind(styles);
 function ListItem({ value }) {
+    const [reRender, setReRender] = useState(0);
     const [data, setData] = useState([]);
 
     useEffect(() => {
@@ -15,10 +16,10 @@ function ListItem({ value }) {
                     setData(response.data);
                 }
             })
-    }, [value])
+    }, [reRender, value])
     return (
         <div className={cx("wrapper")}>
-            {data.map((item, index) => <Item key={index} value={item} />)}
+            {data.map((item, index) => <Item key={index} value={item} onDelete={setReRender}/>)}
         </div>
     );
 }

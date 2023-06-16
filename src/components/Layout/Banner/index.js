@@ -1,7 +1,7 @@
 import classNames from "classnames/bind";
 import styles from "./Banner.module.scss";
 import { useEffect, useState } from "react";
-import Button from "~/components/Button";
+import Button from "~/components/Common/Button";
 const cx = classNames.bind(styles);
 
 function Banner({ data, title, btnName, btnTo, placement = "center", penetration = false }) {

@@ -1,7 +1,7 @@
 import classNames from "classnames/bind";
 import styles from "./Product.module.scss"
-import Button from "~/components/Button";
-import Message from "~/components/Message";
+import Button from "~/components/Common/Button";
+import Message from "~/components/Portal/Message";
 import Modal from "~/components/Modal";
 import CartModal from "~/components/Modal/CartModal";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -10,7 +10,7 @@ import { faCartPlus, faHeart } from "@fortawesome/free-solid-svg-icons";
 import { useContext, useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import { FavouriteContext, actions } from "~/store";
-import { SUCSESS } from "~/constant";
+import { SUCCESS } from "~/constant";
 
 const cx = classNames.bind(styles);
 
@@ -33,7 +33,7 @@ function Product({ product }) {
                     message: ""
                 });
             }, 2000);
-            
+
             return () => clearTimeout(timerId);
         }
     }, [messageFav.isShow]);
@@ -87,7 +87,7 @@ function Product({ product }) {
             </div>
             {messageFav.isShow &&
                 createPortal(
-                    <Message type={SUCSESS} message={messageFav.message} />,
+                    <Message type={SUCCESS} message={messageFav.message} />,
                     document.body
                 )
             }

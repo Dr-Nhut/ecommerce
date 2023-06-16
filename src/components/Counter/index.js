@@ -1,12 +1,12 @@
 import classNames from "classnames/bind";
 import styles from "./Counter.module.scss"
-import Button from "~/components/Button";
+import Button from "~/components/Common/Button";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMinus, faPlus } from "@fortawesome/free-solid-svg-icons";
 
 const cx = classNames.bind(styles);
 
-function Counter({value, onChange}) {
+function Counter({ value, onChange }) {
 
     const handleValue = (value) => {
         isNaN(+value) ? onChange(1) : onChange(value);
