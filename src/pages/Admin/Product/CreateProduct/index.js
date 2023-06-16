@@ -5,14 +5,14 @@ import AddProduct from "~/components/Admin/Forms/AddProduct";
 
 const cx = classNames.bind(styles);
 function CreateProduct() {
-    return ( 
+    return (
         <div className={cx("wrapper")}>
-            <HeaderComponent title="Thêm sản phẩm" btn_after={{name: "Trở lại", to: "/admin/products"}} />
+            <HeaderComponent title="Thêm sản phẩm" btn_after={{ name: "Trở lại", to: "/admin/product" }} />
             <div>
-                <AddProduct/>
+                <AddProduct />
             </div>
         </div>
-     );
+    );
 }
 
 export default CreateProduct;

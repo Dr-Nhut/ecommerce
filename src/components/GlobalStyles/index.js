@@ -1,4 +1,4 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext } from "react";
 import "./GlobalStyles.scss";
 
 export const ProductContext = createContext();

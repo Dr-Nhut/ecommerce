@@ -1,5 +1,5 @@
 import classNames from 'classnames/bind';
-import styles from './AddProduct.module.scss';
+import styles from '~/components/Admin/AddOption/AddOption.module.scss';
 import AddOption from '~/components/Admin/AddOption';
 import { useEffect, useRef, useState } from 'react';
 import axios from 'axios';
@@ -7,9 +7,7 @@ import Message from '~/components/Message';
 import { ERROR, SUCSESS } from '~/constant';
 import { createPortal } from 'react-dom';
 
-
 const cx = classNames.bind(styles);
-
 
 function AddProduct() {
     const [details, setDetails] = useState([]);
@@ -58,19 +56,17 @@ function AddProduct() {
             method: "post",
             url: "http://localhost:5000/api/products",
             data: formData,
-            headers: { 'content-type': 'multipart/form-data' },
+            headers: {'content-type': 'multipart/form-data'},
         })
             .then((response) => {
                 console.log("Response ", response);
                 if (response.data.status !== 'ERROR') {
-                    /*
                     setDetails([]);
                     setTitle("");
                     setPrice(0);
                     setThumbnails(null);
                     inputFileRef.current.value = "";
                     setDesc("");
-                    */
                     setShowMessage({
                         type: SUCSESS,
                         isShow: true,

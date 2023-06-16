@@ -24,22 +24,22 @@ export const DASHBOARD_ITEMS = [
     },
     {
         title: "Sản phẩm",
-        to: "/admin/products",
+        to: "/admin/product",
         icon: faStore
     },
     {
         title: "Danh mục sản phẩm",
-        to: "/admin/categories",
+        to: "/admin/category",
         icon: faLayerGroup
     },
     {
         title: "Khách hàng",
-        to: "/admin/customers",
+        to: "/admin/customer",
         icon: faUsers
     },
     {
         title: "Đánh giá",
-        to: "/admin/reviews",
+        to: "/admin/review",
         icon: faComments
     },
     {

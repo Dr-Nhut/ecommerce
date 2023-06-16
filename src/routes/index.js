@@ -8,8 +8,11 @@ import Login from "~/pages/Login";
 import Register from "~/pages/Register";
 import BlogDetail from "~/pages/BlogDetail";
 import Admin from "~/pages/Admin";
-import ProductManager from "~/pages/Admin/Product";
-import CreateProduct from "~/pages/Admin/CreateProduct";
+import ProductManager from "~/pages/Admin/Product/ProductManager";
+import CreateProduct from "~/pages/Admin/Product/CreateProduct";
+import CatogoryManager from "~/pages/Admin/Category/CategoryManager";
+import CreateCategory from "~/pages/Admin/Category/Create";
+import UpdateCategory from "~/pages/Admin/Category/Update";
 
 const publicRoutes = [
     // Route not login
@@ -62,14 +65,25 @@ const privateRoutes = [
         component: Admin,
     },
     {
-        path: '/admin/products',
+        path: '/admin/product',
         component: ProductManager,
     },
     {
-        path: '/admin/products/create-product',
+        path: '/admin/product/create',
         component: CreateProduct,
+    },
+    {
+        path: '/admin/category',
+        component: CatogoryManager,
+    },
+    {
+        path: '/admin/category/create',
+        component: CreateCategory,
+    },
+    {
+        path: '/admin/category/:categoryId/edit',
+        component: UpdateCategory,
     }
-
 ]
 
 export { publicRoutes, privateRoutes }

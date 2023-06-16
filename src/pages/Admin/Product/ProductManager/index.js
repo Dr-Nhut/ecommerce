@@ -4,10 +4,10 @@ import HeaderComponent from "~/components/Admin/HeaderComponent";
 
 const cx = classNames.bind(styles);
 
-function Product() {
+function ProductManager() {
     return (
         <div className={cx("wrapper")}>
-            <HeaderComponent title="Danh sách sản phẩm" btn_after={{ name: "Thêm sản phẩm", to: "./create-product" }} />
+            <HeaderComponent title="Danh sách sản phẩm" btn_after={{ name: "Thêm sản phẩm", to: "./create" }} />
 
             <div className={cx("product-container")}>
                 All Product
@@ -16,4 +16,4 @@ function Product() {
     );
 }
 
-export default Product;
+export default ProductManager;
