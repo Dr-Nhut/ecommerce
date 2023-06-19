@@ -1,11 +1,12 @@
 import classNames from 'classnames/bind';
-import styles from '~/components/Admin/AddOption/AddOption.module.scss';
+import styles from "./AddProduct.module.scss"
 import AddOption from '~/components/Admin/AddOption';
 import { useEffect, useRef, useState } from 'react';
 import axios from 'axios';
 import Message from '~/components/Portal/Message';
 import { ERROR, SUCCESS } from '~/constant';
 import { createPortal } from 'react-dom';
+import Select from '~/components/Common/Select';
 
 const cx = classNames.bind(styles);
 
@@ -16,6 +17,9 @@ function AddProduct() {
     const [thumbnails, setThumbnails] = useState(null);
     const [desc, setDesc] = useState("");
     const [showMessage, setShowMessage] = useState('');
+    const [options, setOptions] = useState([]);
+    const [selected, setSelected] = useState(''); //Store id category
+
 
     useEffect(() => {
         const timerId = setTimeout(() => {
@@ -25,7 +29,22 @@ function AddProduct() {
         return () => clearTimeout(timerId);
     }, [showMessage]);
 
+    useEffect(() => {
+        getCategories();
+    }, [])
+
     const inputFileRef = useRef();
+
+    const getCategories = () => {
+        axios.get("http://localhost:5000/api/categories/")
+            .then((response) => {
+                setOptions(response.data);
+                setSelected(response.data[0].idcategory);
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+    }
 
     const handleOnChangeFile = (files) => {
         let thumbnailFiles = [];
@@ -44,6 +63,7 @@ function AddProduct() {
             formData.append('thumbnail', thumbnail);
         })
         formData.append('desc', desc);
+        formData.append('category_id', selected);
         formData.append('details', JSON.stringify(details));
 
         axios({
@@ -89,8 +109,12 @@ function AddProduct() {
             <label htmlFor="price">Giá cả</label>
             <input value={price} onChange={(e) => setPrice(+e.target.value)} id="price" type="text" required />
 
-            <label htmlFor="thumbnails">Hình ảnh sản phẩm</label>
-            <input id="thumbnails" name="thumbnails" ref={inputFileRef} onChange={(e) => handleOnChangeFile(e.target.files)} type="file" multiple />
+            {options.length > 0 && <Select title="Loại sản phẩm" value={selected} onSelect={setSelected} options={options} />}
+            
+            {thumbnails ? <div className={cx('thumbnails')}>{thumbnails.map((item, index) => <img key={index} src={URL.createObjectURL(item)} alt='thumbnail' className={cx('thumbnail')} />)}</div> : thumbnails}
+            
+            <label className={cx('label-btn')} htmlFor="thumbnails">Thêm ảnh</label>
+            <input hidden id="thumbnails" name="thumbnails" ref={inputFileRef} onChange={(e) => handleOnChangeFile(e.target.files)} type="file" multiple />
 
             <label htmlFor="description">Mô tả sản phẩm</label>
             <textarea value={desc} onChange={(e) => setDesc(e.target.value)} id="description" required rows="6" cols="50" />

@@ -61,3 +61,14 @@
     border: 1px solid var(--dark-blue);
     border-radius: 5px;
 }
+
+.thumbnails {
+    display: flex;
+    column-gap: 10px;
+    img {
+        width: 100px;
+        height: 100px;
+        border: 1px solid var(--dark-blue);
+        border-radius: 5px;
+    }
+}

@@ -73,7 +73,6 @@ function AddCategory() {
             <label htmlFor="description">Mô tả danh mục</label>
             <textarea value={desc} onChange={(e) => setDesc(e.target.value)} id="description" rows="6" cols="50" />
 
-
             <input className={cx('sbm-btn')} type='submit' value="Thêm danh mục" />
 
             {showMessage.isShow && createPortal(
