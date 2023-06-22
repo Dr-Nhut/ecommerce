@@ -4,6 +4,7 @@ import { DefaultLayout } from '~/components/Layout';
 import ScrollToTop from '~/components/Common/ScrollToTop';
 import { AdminLayout } from '~/components/Admin';
 function App() {
+
   const handlePublicPage = () => {
     return publicRoutes.map((route, index) => {
       let Layout, sidebarType;

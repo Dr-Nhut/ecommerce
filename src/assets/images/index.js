@@ -10,3 +10,4 @@ export {default as aboutImage} from "./about_1.jpg";
 export {default as aboutImageTwo} from "./about_2.jpg";
 export {default as aboutImageThree} from "./about_3.jpg";
 export {default as blogNews} from "./blog_news.jpg";
+export {default as avatar} from "./defaultavatar.png";

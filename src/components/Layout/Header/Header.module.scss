@@ -57,6 +57,9 @@
 }
 
 .login-item {
+    width: 42px;
+    height: 42px;
+    overflow: hidden;
     position: relative;
     padding: 8px;
     cursor: pointer;
@@ -65,6 +68,13 @@
     &:hover {
         color: rgba(5, 56, 107, 0.6);
     }
+}
+
+.avatar {
+    border: 1px solid var(--white-green);
+    border-radius: 50%;
+    width: 100%;
+    height: 100%;
 }
 
 .count-product {

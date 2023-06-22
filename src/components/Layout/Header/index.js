@@ -1,17 +1,17 @@
 import classNames from "classnames/bind";
 import styles from "./Header.module.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCartShopping, faCircleUser } from "@fortawesome/free-solid-svg-icons";
-import { AUTH_ITEMS } from "~/constant";
+import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 import Tippy from "@tippyjs/react/headless";
 import Search from "~/components/Common/Search";
 import Button from "~/components/Common/Button";
 import Navbar from "~/components/Common/Navbar";
-import { Menu, MenuProduct } from "~/components/Popper";
+import { MenuProduct } from "~/components/Popper";
 import { faHeart } from "@fortawesome/free-regular-svg-icons";
 import { useContext } from "react";
 import { FavouriteContext, ProductContext } from "~/store";
 import Logo from "~/components/Common/Logo";
+import User from "./User";
 
 const cx = classNames.bind(styles);
 function Header() {
@@ -57,22 +57,6 @@ function Header() {
                     </div>
 
                     <div className={cx("hc-user")}>
-
-                        <Tippy
-                            maxWidth="none"
-                            interactive
-                            placement="bottom-end"
-                            render={attrs => (
-                                <div className={cx("login-tippy", "user-tippy")} tabIndex="-1" {...attrs}>
-                                    <Menu data={AUTH_ITEMS} />
-                                </div>
-                            )}
-                        >
-                            <div className={cx("login-item")}>
-                                <FontAwesomeIcon className={cx("login-icon")} icon={faCircleUser} />
-                            </div>
-                        </Tippy>
-
                         <Tippy
                             trigger="focusin click"
                             hideOnClick={true}
@@ -107,6 +91,7 @@ function Header() {
                             </div>
                         </Tippy>
 
+                        <User />
                     </div>
                 </div>
             </div>

@@ -1,5 +1,6 @@
 import classNames from "classnames/bind";
 import styles from "./Input.module.scss";
+import { memo } from "react";
 
 const cx = classNames.bind(styles);
 
@@ -24,4 +25,4 @@ function Input({ type, value, label, id, placeholder, handleChange }) {
     );
 }
 
-export default Input;
+export default memo(Input);
