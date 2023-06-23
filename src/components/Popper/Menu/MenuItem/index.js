@@ -15,7 +15,7 @@ function MenuItem({ data, size }) {
     }
     return (
         <li className={cx("wrapper", size)}>
-            <Comp className={cx("item", classLink)} {...props}>
+            <Comp onClick={data.onClick} className={cx("item", classLink)} {...props}>
                 {data.icon && <FontAwesomeIcon className={cx("icon")} icon={data.icon} />}
                 <span>{data.title}</span>
             </Comp>

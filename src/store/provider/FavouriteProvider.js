@@ -1,6 +1,6 @@
 import { useReducer, useContext } from "react";
 import { ProductContext, FavouriteContext } from "~/store";
-import favouriteReducer from "../favouriteReducer";
+import favouriteReducer from "../reducer/favouriteReducer";
 function FavouriteProvider({ children }) {
     const products = useContext(ProductContext);
     const favouriteItems = {};

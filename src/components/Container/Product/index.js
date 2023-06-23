@@ -9,8 +9,9 @@ import { faEye } from "@fortawesome/free-regular-svg-icons";
 import { faCartPlus, faHeart } from "@fortawesome/free-solid-svg-icons";
 import { useContext, useEffect, useState } from "react";
 import { createPortal } from "react-dom";
-import { FavouriteContext, actions } from "~/store";
+import { FavouriteContext } from "~/store";
 import { SUCCESS } from "~/constant";
+import { favouriteActions } from "~/store/actions";
 
 const cx = classNames.bind(styles);
 
@@ -40,14 +41,14 @@ function Product({ product }) {
 
     const handleFav = () => {
         if (state[product.id] === 0) {
-            dispatch(actions.addToFavourite(product.id));
+            dispatch(favouriteActions.addToFavourite(product.id));
             setMessageFav({
                 isShow: true,
                 message: "Sản phẩm đã được thêm vào mục yêu thích"
             });
         }
         else {
-            dispatch(actions.removeToFavourite(product.id));
+            dispatch(favouriteActions.removeToFavourite(product.id));
             setMessageFav({
                 isShow: true,
                 message: "Sản phẩm đã được xóa khỏi mục yêu thích"
@@ -75,7 +76,7 @@ function Product({ product }) {
             </div>
 
             <div className={cx("action")}>
-                <Button className={cx(classNameBtn)} onClick={() => handleFav()} square outline>
+                <Button className={cx(classNameBtn)} onClick={handleFav} square outline>
                     <FontAwesomeIcon icon={faHeart} />
                 </Button>
                 <Button onClick={() => setShowModal(true)} square outline>

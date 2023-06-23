@@ -11,16 +11,6 @@ export const AUTH_ITEMS = [
     }
 ]
 
-export const USER_ITEMS = [
-    {
-        title: "Profile",
-        to: "/:userId/profile"
-    },
-    {
-        title: "Đăng xuất",
-        to: "/login"
-    }
-]
 
 export const DASHBOARD_ITEMS = [
     {
@@ -119,3 +109,6 @@ export const sizesRadio = [
     "L",
     "XL"
 ]
+
+export const LOGOUT = 'logout';
+export const LOGIN = 'login';

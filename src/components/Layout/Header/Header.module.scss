@@ -100,3 +100,17 @@
     background-color: var(--white-green);
     height: 41px;
 }
+
+//user
+.user-portal {
+    position: fixed;
+    top: 68px;
+    right: 88px;
+    padding: 8px 0;
+    background-color: var(--white-green);
+    border: none;
+    border-radius: 5px;
+    overflow: hidden;
+    z-index: 999;
+    color: var(--dark-blue);
+}

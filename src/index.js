@@ -3,16 +3,18 @@ import ReactDOM from 'react-dom/client';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import GlobalStyles from '~/components/GlobalStyles';
-import { ProductProvider, FavouriteProvider } from "~/store";
+import { UserProvider, ProductProvider, FavouriteProvider } from "~/store";
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <GlobalStyles>
-      <ProductProvider>
-        <FavouriteProvider>
-          <App />
-        </FavouriteProvider>
-      </ProductProvider>
+      <UserProvider>
+        <ProductProvider>
+          <FavouriteProvider>
+            <App />
+          </FavouriteProvider>
+        </ProductProvider>
+      </UserProvider>
     </GlobalStyles>
   </React.StrictMode>
 );
