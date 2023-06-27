@@ -68,8 +68,6 @@ export const SET_CART = "set_cart"
 export const CHANGE_QUANTITY = "change_quantity"
 export const GET_RATING = "get_rating"
 
-
-
 export const ADD_TO_FAVOURITE = "add_to_favorite"
 export const REMOVE_TO_FAVOURITE = "remove_to_favorite"
 
@@ -118,11 +116,6 @@ export const categories = [
     { type: "category", name: "electronics", value: "Điện tử" },
     { type: "category", name: "women's clothing", value: "Thời trang nữ" },
 ];
-
-export const colorsRadio = []
-export const sizesRadio = []
-
-
 
 export const LOGOUT = 'logout';
 export const LOGIN = 'login';
