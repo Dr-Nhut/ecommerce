@@ -1,20 +1,16 @@
 import classNames from "classnames/bind";
 import styles from "./Home.module.scss";
 import Banner from "~/components/Layout/Banner";
-import Product from "~/components/Container/Product";
-import { ProductContext } from "~/store";
 import { banner1, banner2, banner3, bag, jacket, tshirt, outstanding, bannerCentral } from "~/assets/images";
-import { useContext } from "react";
 import Button from "~/components/Common/Button";
 import Tabs from "~/components/Common/Tabs";
+import ProductList from "~/components/Container/ProductList";
 const banner = [banner1, banner2, banner3];
 
 
 const cx = classNames.bind(styles);
 
 function Home() {
-    const value = useContext(ProductContext);
-    const products = [...value];
     return (
         <div className={cx("wrapper")}>
             <div className={cx("banner")}>
@@ -33,11 +29,7 @@ function Home() {
                     </div>
 
                     <div className={cx("featured-product")}>
-                        {products.filter(item => item.id <= 8).map((product, index) =>
-                            <div key={index} className={cx("featured-product-item")}>
-                                <Product product={product} />
-                            </div>
-                        )}
+                        <ProductList limit={8} />
                     </div>
 
                     <div className={cx("more-product")}>
@@ -54,21 +46,9 @@ function Home() {
                         navs={[{ title: "Mới nhất" }, { title: "Bán chạy nhất" }, { title: "Siêu khuyến mãi" }]}
                         outlet={
                             [
-                                products.splice(0, 8).map((product, index) =>
-                                    <div key={index} className={cx("featured-product-item")}>
-                                        <Product product={product} />
-                                    </div>
-                                ),
-                                products.splice(0, 8).map((product, index) =>
-                                    <div key={index} className={cx("featured-product-item")}>
-                                        <Product product={product} />
-                                    </div>
-                                ),
-                                products.splice(0, 8).map((product, index) =>
-                                    <div key={index} className={cx("featured-product-item")}>
-                                        <Product product={product} />
-                                    </div>
-                                )
+                                <ProductList limit={8} />,
+                                <ProductList limit={8} />,
+                                <ProductList limit={8} />
                             ]
                         }
                     />

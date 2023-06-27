@@ -13,6 +13,7 @@ import CreateProduct from "~/pages/Admin/Product/CreateProduct";
 import CatogoryManager from "~/pages/Admin/Category/CategoryManager";
 import CreateCategory from "~/pages/Admin/Category/Create";
 import UpdateCategory from "~/pages/Admin/Category/Update";
+import Cart from "~/pages/Cart";
 
 const publicRoutes = [
     // Route not login
@@ -27,6 +28,10 @@ const publicRoutes = [
     {
         path: '/register',
         component: Register,
+    },
+    {
+        path: '/cart',
+        component: Cart,
     },
     {
         path: '/product',

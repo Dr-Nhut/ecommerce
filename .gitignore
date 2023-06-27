@@ -10,7 +10,10 @@
 
 # production
 /build
+/.vscode
 /database
+.env
+
 
 # misc
 .DS_Store

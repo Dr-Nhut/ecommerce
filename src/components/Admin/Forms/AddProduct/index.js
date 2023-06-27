@@ -73,7 +73,6 @@ function AddProduct() {
             headers: { 'content-type': 'multipart/form-data' },
         })
             .then((response) => {
-                console.log("Response ", response);
                 if (response.data.status !== 'ERROR') {
                     setDetails([]);
                     setTitle("");

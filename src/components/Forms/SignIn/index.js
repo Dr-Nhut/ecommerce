@@ -16,7 +16,7 @@ const cx = classNames.bind(styles);
 
 function SignIn() {
     const navigate = useNavigate();
-    const [state, dispatch] = useContext(UserContext);
+    const dispatch = useContext(UserContext)[1];
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [showMessage, setShowMessage] = useState('');

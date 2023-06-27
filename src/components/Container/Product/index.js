@@ -9,22 +9,24 @@ import { faEye } from "@fortawesome/free-regular-svg-icons";
 import { faCartPlus, faHeart } from "@fortawesome/free-solid-svg-icons";
 import { useContext, useEffect, useState } from "react";
 import { createPortal } from "react-dom";
-import { FavouriteContext } from "~/store";
+import { ProductContext } from "~/store";
 import { SUCCESS } from "~/constant";
-import { favouriteActions } from "~/store/actions";
+import { productActions } from "~/store/actions";
 
 const cx = classNames.bind(styles);
 
 function Product({ product }) {
-    const [state, dispatch] = useContext(FavouriteContext);
-
+    const [state, dispatch] = useContext(ProductContext);
+    const favourites = state.favourites;
+    const cart = state.cart;
     const [showModal, setShowModal] = useState(false);
     const [messageFav, setMessageFav] = useState({
         isShow: false,
         message: ""
     });
 
-    const classNameBtn = state[product.id] ? "active" : null;
+    const favEleClass = favourites[product.idproduct] ? "active" : null;
+    const carEleClass = cart[product.idproduct] ? "active" : null;
 
     useEffect(() => {
         if (messageFav.isShow) {
@@ -40,15 +42,15 @@ function Product({ product }) {
     }, [messageFav.isShow]);
 
     const handleFav = () => {
-        if (state[product.id] === 0) {
-            dispatch(favouriteActions.addToFavourite(product.id));
+        if (!favourites[product.idproduct]) {
+            dispatch(productActions.addToFavourite(product.idproduct));
             setMessageFav({
                 isShow: true,
                 message: "Sản phẩm đã được thêm vào mục yêu thích"
             });
         }
         else {
-            dispatch(favouriteActions.removeToFavourite(product.id));
+            dispatch(productActions.removeToFavourite(product.idproduct));
             setMessageFav({
                 isShow: true,
                 message: "Sản phẩm đã được xóa khỏi mục yêu thích"
@@ -60,13 +62,13 @@ function Product({ product }) {
         <div className={cx("wrapper")}>
             <div className={cx("container")}>
                 <div className={cx("product-img")}>
-                    <img src={product.thumbnail} alt="product" />
+                    <img src={`http://localhost:5000/${product.thumbnails.split(',')[0]}`} alt="product" />
                 </div>
                 <div className={cx("product-info")}>
                     <span className={cx("product-name")}>{product.title}</span>
                     <div className={cx("product-price")}>
-                        <span>{product.price}$</span>
-                        <span className={cx("product-compare-price")}><del>{product.comparePrice || "10$"}$</del></span>
+                        <span>{product.price}đ</span>
+                        <span className={cx("product-compare-price")}><del>{product.comparePrice || "10"}đ</del></span>
                     </div>
                 </div>
             </div>
@@ -76,13 +78,13 @@ function Product({ product }) {
             </div>
 
             <div className={cx("action")}>
-                <Button className={cx(classNameBtn)} onClick={handleFav} square outline>
+                <Button className={cx(favEleClass)} onClick={handleFav} whiteBackground square >
                     <FontAwesomeIcon icon={faHeart} />
                 </Button>
-                <Button onClick={() => setShowModal(true)} square outline>
+                <Button className={cx(carEleClass)} onClick={() => setShowModal(true)} whiteBackground square >
                     <FontAwesomeIcon icon={faCartPlus} />
                 </Button>
-                <Button square outline to={`/product/${product.id}`}>
+                <Button square whiteBackground to={`/product/${product.idproduct}`}>
                     <FontAwesomeIcon icon={faEye} />
                 </Button>
             </div>

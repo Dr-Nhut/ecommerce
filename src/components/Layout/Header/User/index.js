@@ -12,6 +12,7 @@ import { UserContext } from "~/store";
 import { createPortal } from "react-dom";
 import Cookies from "universal-cookie";
 import { useNavigate } from "react-router-dom";
+import { userActions } from "~/store/actions";
 
 const cx = classNames.bind(styles);
 
@@ -32,6 +33,7 @@ function User() {
             onClick: () => {
                 const cookie = new Cookies();
                 cookie.remove('ecommerceToken', { path: '/' });
+                dispatch(userActions.logout());
                 nagative('/login');
             },
         }
@@ -39,7 +41,7 @@ function User() {
 
     useEffect(() => {
         setDomReady(true);
-    })
+    }, [domReady, showPortal])
 
     return (
         <>
@@ -65,7 +67,7 @@ function User() {
             }
 
             {showPortal && domReady && createPortal(
-                <div onClick={() =>setShowPortal(false)} className={cx('user-portal')}><Menu data={userMenu} /></div>,
+                <div onClick={() => setShowPortal(false)} className={cx('user-portal')}><Menu data={userMenu} /></div>,
                 document.getElementById('avatar')
             )}
         </>

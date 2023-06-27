@@ -29,14 +29,21 @@
     }
 }
 
+.whiteBackground {
+    color: var(--white-green);
+    background-color: var(--primary);
+    &:hover {
+        background-color: var(--dark-green);
+    }
+}
+
 .destroy {
     color: var(--white-green);
     background-color: var(--red-one);
     border-color: var(--red-one);
     &:hover {
-        border-color: rgba(255,0,0, 0.6 );
-        background: rgba(255,0,0, 0.6 );
-
+        border-color: rgba(255, 0, 0, 0.6);
+        background: rgba(255, 0, 0, 0.6);
     }
 }
 

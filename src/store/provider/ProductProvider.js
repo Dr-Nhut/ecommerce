@@ -1,27 +1,38 @@
-import { useState, useLayoutEffect } from "react";
-import {ProductContext} from "~/store/context";
+import axios from "axios";
+import { useContext, useLayoutEffect, useReducer } from "react";
+import { ProductContext, UserContext } from "~/store/context";
+import productReducer from "../reducer/productReducer";
+import { productActions as actions } from "../actions";
+import { INIT_PRODUCT } from "~/constant";
 
 function ProductProvider({ children }) {
-    const [products, setProducts] = useState([]);
-
-
+    const [user] = useContext(UserContext);
+    const [state, dispatch] = useReducer(productReducer, INIT_PRODUCT);
     useLayoutEffect(() => {
-        fetch("https://dummyjson.com/products")
-            .then(response => {
-                return response.json()
+        console.log('re-render', user);
+        axios.get('http://localhost:5000/api/products')
+            .then((response) => {
+                dispatch(actions.setProducts(response.data));
             })
-            .then(data => {
-                setProducts(data.products)
+            .catch((err) => console.error(err));
+
+        user ? 
+        axios.get(`http://localhost:5000/api/cart/${user.cart}`)
+            .then((response) => {
+                dispatch(actions.setCart(response.data));
             })
-    }, []);
-    if (Array.isArray(products) && products.length === 0) {
-        return <h1>Loading...</h1>;
-    }
-    else return (
-        <ProductContext.Provider value={products}>
-            {children}
-        </ProductContext.Provider>
-    )
+            .catch((err) => console.error(err))
+        : dispatch(actions.setCart({quantity: 0, totalPrice: 0}));
+}, [user, user.cart]);
+
+if (Array.isArray(state.products) && state.products.length === 0) {
+    return <h1>Loading...</h1>;
+}
+else return (
+    <ProductContext.Provider value={[state, dispatch]}>
+        {children}
+    </ProductContext.Provider>
+)
 }
 
 export default ProductProvider;

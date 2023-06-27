@@ -1,50 +1,20 @@
 import classNames from "classnames/bind";
 import styles from "./Header.module.scss";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
-import Tippy from "@tippyjs/react/headless";
 import Search from "~/components/Common/Search";
-import Button from "~/components/Common/Button";
 import Navbar from "~/components/Common/Navbar";
-import { MenuProduct } from "~/components/Popper";
-import { faHeart } from "@fortawesome/free-regular-svg-icons";
 import { useContext } from "react";
-import { FavouriteContext, ProductContext } from "~/store";
+import { ProductContext } from "~/store";
 import Logo from "~/components/Common/Logo";
 import User from "./User";
+import Collection from "./Collection";
+import { faHeart } from "@fortawesome/free-regular-svg-icons";
 
 const cx = classNames.bind(styles);
 function Header() {
-    const products = useContext(ProductContext);
-    const [state] = useContext(FavouriteContext);
-    let favProducts = [];
-    const countFavourites = products.reduce((pre, cur) => {
-        if (state[cur.id]) {
-            favProducts.push(cur);
-        }
-        return pre + state[cur.id]
-    }, 0)
-
-    const handleFavTippy = (attrs) => {
-        return countFavourites ?
-            (
-                <div className={cx("cart-tippy", "user-tippy")} tabIndex="-1" {...attrs}>
-                    <div className={cx("tippy-content")}>
-                        {
-                            favProducts.length <= 4
-                                ? <MenuProduct title="Sản phẩm đã thích" data={favProducts} />
-                                : <MenuProduct title="Sản phẩm đã thích" data={[...favProducts].splice(0, 4)} anouncement={`Xem thêm ${favProducts.length - 4} sản phẩm`} />
-                        }
-                    </div>
-                    <div className={cx("tippy-btn")}><Button to="/products/favourites" primary>Xem tất cả</Button></div>
-                </div>
-            ) :
-            (
-                <div className={cx("cart-tippy", "user-tippy")} tabIndex="-1" {...attrs}>
-                    <span>Sản phẩm yêu thích</span>
-                </div>
-            )
-    }
+    const [state] = useContext(ProductContext);
+    const countFavourites = Object.keys(state.favourites).length;
+    const countCart = state.cart.quantity;
 
     return (
         <header className={cx("wrapper")}>
@@ -57,39 +27,9 @@ function Header() {
                     </div>
 
                     <div className={cx("hc-user")}>
-                        <Tippy
-                            trigger="focusin click"
-                            hideOnClick={true}
-                            maxWidth="none"
-                            interactive
-                            placement="bottom-end"
-                            render={attrs => (
-                                handleFavTippy(attrs)
-                            )}
-                        >
-                            <div className={cx("login-item")}>
-                                <div className={cx("count-product")}>
-                                    <span>{countFavourites}</span>
-                                </div>
-                                <FontAwesomeIcon className={cx("login-icon")} icon={faHeart} />
-                            </div>
-                        </Tippy>
+                        <Collection to="/favourite" tippy='Yêu thích' icon={faHeart} count={countFavourites} />
 
-                        <Tippy
-                            maxWidth="none"
-                            render={attrs => (
-                                <div className={cx("cart-tippy", "user-tippy")} tabIndex="-1" {...attrs}>
-                                    <span>Giỏ hàng</span>
-                                </div>
-                            )}
-                        >
-                            <div className={cx("login-item")}>
-                                <div className={cx("count-product")}>
-                                    <span>0</span>
-                                </div>
-                                <FontAwesomeIcon className={cx("login-icon")} icon={faCartShopping} />
-                            </div>
-                        </Tippy>
+                        <Collection to="/cart" tippy='Giỏ hàng' icon={faCartShopping} count={countCart} />
 
                         <User />
                     </div>

@@ -1,0 +1,28 @@
+.wrapper {
+    width: 40%;
+    padding: 9px 16px;   
+}
+
+.thumbnail {
+    width: 100%;
+    height: 420px;
+} 
+
+.thumbnail-options {
+    margin-top: 20px;
+    display: flex;
+    column-gap: 10px;
+}
+
+.thumbnail-item {
+    cursor: pointer;
+    width: 100px;
+    height: 100px;
+    &:hover {
+        border: 4px solid var(--dark-blue);
+    }
+}
+
+.thumbnail-active {
+    border: 4px solid var(--dark-blue);
+}

@@ -1,0 +1,23 @@
+.wrapper {
+    width: 100%;
+    overflow: hidden;
+}
+
+.thumbnail {
+    width: 100px;
+    height: 100px;
+    border-radius: 5px;
+}
+
+.t-data {
+    padding: 9px 16px;
+}
+
+.price {
+    color: var(--dark-blue);
+}
+
+.trash {
+    color: red;
+    cursor: pointer;
+}

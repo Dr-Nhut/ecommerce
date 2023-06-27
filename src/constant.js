@@ -1,5 +1,14 @@
 import { faCartShopping, faComments, faGauge, faGear, faLayerGroup, faStore, faUsers } from "@fortawesome/free-solid-svg-icons"
 
+export const INIT_PRODUCT = {
+    products: [],
+    colors: {},
+    sizes: {},
+    rate: {},
+    favourites: {},
+    cart: {},
+}
+
 export const AUTH_ITEMS = [
     {
         title: "Đăng nhập",
@@ -50,9 +59,24 @@ export const DASHBOARD_ITEMS = [
     },
 ]
 
+//Product Actions
+export const SET_PRODUCTS = "set_products"
+export const SET_RATING = "set_rating"
+export const SET_COLORS = "set_colors"
+export const SET_SIZES = "set_sizes"
+export const SET_CART = "set_cart"
+export const CHANGE_QUANTITY = "change_quantity"
+export const GET_RATING = "get_rating"
+
+
 
 export const ADD_TO_FAVOURITE = "add_to_favorite"
 export const REMOVE_TO_FAVOURITE = "remove_to_favorite"
+
+export const ADD_TO_CART = "add_to_cart"
+export const REMOVE_CARTITEM = 'remove_cartitem'
+export const REMOVE_TO_CART = "remove_to_cart"
+
 export const SUCCESS = "success"
 export const INFO = "info"
 export const WARN = "warn"
@@ -95,20 +119,10 @@ export const categories = [
     { type: "category", name: "women's clothing", value: "Thời trang nữ" },
 ];
 
+export const colorsRadio = []
+export const sizesRadio = []
 
-export const colorsRadio = [
-    "Trắng tay đen",
-    "Be tay nâu",
-    "Trắng tay xanh",
-    "Xám tay đen"
-];
 
-export const sizesRadio = [
-    "S",
-    "M",
-    "L",
-    "XL"
-]
 
 export const LOGOUT = 'logout';
 export const LOGIN = 'login';
