@@ -6,7 +6,7 @@ import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 import Rating from "~/components/Rating";
 import Filter from "~/components/Filter";
-import Radio from "~/components/Radio";
+import Radio from "~/components/Radio/Button";
 import Counter from "~/components/Counter";
 import { useContext, useEffect, useState } from "react";
 import { ProductContext, UserContext } from "~/store";
@@ -90,7 +90,7 @@ function ProductDetail({ param }) {
                             <span>Đã bán: 500</span>
                         </div>
                     </div>
-                    
+
                     <Favourite idProduct={product.idproduct} />
                 </div>
                 <div className={cx("price")}>

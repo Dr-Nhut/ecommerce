@@ -1,0 +1,21 @@
+.product-list,
+.summary {
+    border-bottom: 1px solid #ccc;
+}
+
+.summary, .total {
+    padding: 16px 0;
+}
+
+.summary-description, .total {
+    margin-bottom: 8px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.total {
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--dark-blue);
+}
+

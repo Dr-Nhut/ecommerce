@@ -14,7 +14,7 @@ const cx = classNames.bind(styles);
 function Header() {
     const [state] = useContext(ProductContext);
     const countFavourites = Object.keys(state.favourites).length;
-    const countCart = state.cart.quantity;
+    const countCart = state.cart.quantity || 0;
 
     return (
         <header className={cx("wrapper")}>

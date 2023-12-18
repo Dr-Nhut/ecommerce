@@ -27,7 +27,7 @@ function CartList() {
                 <div className={cx("table-title")}>
                     <Button primary>Trở lại</Button>
                     <h3>Có {countCart} sản phẩm trong giỏ hàng</h3>
-                    <Button primary>Thanh Toán</Button>
+                    <Button primary to="/checkouts">Thanh Toán</Button>
                 </div> :
                 <div className={cx("table-title")}>
                     <Button primary>Trở lại</Button>

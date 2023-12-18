@@ -5,8 +5,12 @@
 }
 
 .select {
-    height: 32px;
-    width: 50%;
+    height: 36px;
     padding: 9px 16px;
     color: var(--dark-blue);
+    border-radius: 5px;
+}
+
+.half {
+    width: 50%;
 }

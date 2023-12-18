@@ -1,0 +1,48 @@
+.address {
+    margin-top: 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.title {
+    display: flex;
+    column-gap: 4px;
+}
+
+.edit-address {
+    font-size: 2rem;
+    color: var(--primary);
+    cursor: pointer;
+}
+
+.content {
+    color: var(--dark-blue);
+    padding: 8px 0;
+    font-size: 1.6rem;
+    font-weight: 600;
+}
+
+.checkout {
+    margin-top: 10px;
+}
+
+.delivery-method > * {
+    margin-top: 8px;
+    padding: 8px 0;
+    font-size: 1.6rem;
+}
+
+.actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.link {
+    font-size: 1.6rem;
+    text-decoration: none;
+}

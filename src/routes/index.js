@@ -14,6 +14,11 @@ import CatogoryManager from "~/pages/Admin/Category/CategoryManager";
 import CreateCategory from "~/pages/Admin/Category/Create";
 import UpdateCategory from "~/pages/Admin/Category/Update";
 import Cart from "~/pages/Cart";
+import Checkouts from "~/pages/Checkouts";
+import CheckoutLayout from "~/components/Layout/CheckoutLayout";
+import CheckoutSuccess from "~/pages/CheckoutSuccess";
+import EditProduct from "~/pages/Admin/Product/EditProduct";
+import OrderManager from "~/pages/Admin/Order/OrderManager";
 
 const publicRoutes = [
     // Route not login
@@ -60,6 +65,20 @@ const publicRoutes = [
     {
         path: '/about-us',
         component: About
+    },
+    {
+        path: '/checkouts',
+        component: Checkouts,
+        layout: {
+            name: CheckoutLayout
+        }
+    },
+    {
+        path: '/checkout-success',
+        component: CheckoutSuccess,
+        layout: {
+            name: CheckoutLayout
+        }
     }
 ]
 
@@ -78,6 +97,10 @@ const privateRoutes = [
         component: CreateProduct,
     },
     {
+        path: '/admin/product/:id/edit',
+        component: EditProduct,
+    },
+    {
         path: '/admin/category',
         component: CatogoryManager,
     },
@@ -88,7 +111,11 @@ const privateRoutes = [
     {
         path: '/admin/category/:categoryId/edit',
         component: UpdateCategory,
-    }
+    },
+    {
+        path: '/admin/orders',
+        component: OrderManager,
+    },
 ]
 
 export { publicRoutes, privateRoutes }

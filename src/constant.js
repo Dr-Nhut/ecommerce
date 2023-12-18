@@ -1,7 +1,7 @@
 import { faCartShopping, faComments, faGauge, faGear, faLayerGroup, faStore, faUsers } from "@fortawesome/free-solid-svg-icons"
 
 export const INIT_PRODUCT = {
-    products: [],
+    products: {},
     colors: {},
     sizes: {},
     rate: {},
@@ -61,12 +61,15 @@ export const DASHBOARD_ITEMS = [
 
 //Product Actions
 export const SET_PRODUCTS = "set_products"
+export const ADD_PRODUCT = "add_product"
+export const DELETE_PRODUCT = "delete_product"
 export const SET_RATING = "set_rating"
 export const SET_COLORS = "set_colors"
 export const SET_SIZES = "set_sizes"
 export const SET_CART = "set_cart"
 export const CHANGE_QUANTITY = "change_quantity"
 export const GET_RATING = "get_rating"
+export const CLEAR_CART = "clear_cart"
 
 export const ADD_TO_FAVOURITE = "add_to_favorite"
 export const REMOVE_TO_FAVOURITE = "remove_to_favorite"
@@ -119,3 +122,4 @@ export const categories = [
 
 export const LOGOUT = 'logout';
 export const LOGIN = 'login';
+export const ADD_ADDRESS = 'add-address';

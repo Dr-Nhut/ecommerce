@@ -4,7 +4,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Button from "~/components/Common/Button";
 import { faCartPlus, faClose } from "@fortawesome/free-solid-svg-icons";
 import Rating from "~/components/Rating";
-import Radio from "~/components/Radio";
 import Counter from "~/components/Counter";
 import { useContext, useEffect, useState } from "react";
 import axios from "axios";
@@ -12,6 +11,7 @@ import Thumbnails from "~/components/Common/Thumbnails";
 import { ProductContext, UserContext } from "~/store";
 import { productActions } from "~/store/actions";
 import { useNavigate } from "react-router-dom";
+import { RadioButton } from "~/components/Radio";
 
 const cx = classNames.bind(styles);
 
@@ -84,12 +84,12 @@ function CartModal({ product, isShow }) {
 
                 <div className={cx("color")}>
                     <p>Màu sắc</p>
-                    <Radio idProduct={product.idproduct} type='colors' active={color} setActive={setColor} />
+                    <RadioButton idProduct={product.idproduct} type='colors' active={color} setActive={setColor} />
                 </div>
 
                 <div className={cx("size")}>
                     <p>Size</p>
-                    <Radio idProduct={product.idproduct} type='sizes' active={size} setActive={setSize} />
+                    <RadioButton idProduct={product.idproduct} type='sizes' active={size} setActive={setSize} />
                 </div>
 
                 <div className={cx("quantity")}>

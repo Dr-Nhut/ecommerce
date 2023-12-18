@@ -1,0 +1,20 @@
+.wrapper {
+    display: flex; 
+}
+
+.shipment-detail {
+    height: 100vh;
+    flex: .6;
+    padding: 10px 20px;
+    border-right: 1px solid #ccc;
+}
+
+.logo {
+    width: 184px;
+}
+
+.checkout-detail {
+    flex: .4;
+    padding-top: 20px;
+    padding-left: 30px;
+}

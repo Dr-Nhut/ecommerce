@@ -36,7 +36,7 @@ function Item({ value, onDelete }) {
 
             {showPortal && createPortal(
                 <Modal isShow={setShowPortal}>
-                    <Alert onDelete={onDelete} isShow={setShowPortal} message={`Bạn có chắc muốn xóa ${value.name} không?`} id={value.idcategory} isShowMessage={setShowMessage} />
+                    <Alert type='categories' onDelete={onDelete} isShow={setShowPortal} message={`Bạn có chắc muốn xóa ${value.name} không?`} id={value.idcategory} isShowMessage={setShowMessage} />
                 </Modal>,
                 document.body
             )}

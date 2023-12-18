@@ -9,8 +9,7 @@ function ProductProvider({ children }) {
     const [user] = useContext(UserContext);
     const [state, dispatch] = useReducer(productReducer, INIT_PRODUCT);
     useLayoutEffect(() => {
-        console.log('re-render', user);
-        axios.get('http://localhost:5000/api/products')
+        axios.get('http://localhost:5000/api/products/getAll')
             .then((response) => {
                 dispatch(actions.setProducts(response.data));
             })
@@ -25,7 +24,7 @@ function ProductProvider({ children }) {
         : dispatch(actions.setCart({quantity: 0, totalPrice: 0}));
 }, [user, user.cart]);
 
-if (Array.isArray(state.products) && state.products.length === 0) {
+if (!Array.isArray(state.products)) {
     return <h1>Loading...</h1>;
 }
 else return (

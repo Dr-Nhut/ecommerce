@@ -4,7 +4,7 @@ import { memo } from "react";
 
 const cx = classNames.bind(styles);
 
-function Input({ type, value, label, id, placeholder, handleChange }) {
+function Input({ type, value, label, id, placeholder, handleChange, required=false, checked=false }) {
     let validLabel;
     if(value) {
         validLabel = 'valid';
@@ -19,6 +19,8 @@ function Input({ type, value, label, id, placeholder, handleChange }) {
                 value={value} 
                 onChange={(e) => handleChange(e.target.value)} 
                 placeholder={placeholder} 
+                required = {required}
+                checked = {checked}
             />
             <label className={cx("label", validLabel)} htmlFor={id} >{label}</label>
         </div>

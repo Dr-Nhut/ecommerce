@@ -1,4 +1,4 @@
-import { LOGIN, LOGOUT } from "~/constant";
+import { ADD_ADDRESS, LOGIN, LOGOUT } from "~/constant";
 
 const userReducer = (state, action) => {
     switch (action.type) {
@@ -6,6 +6,11 @@ const userReducer = (state, action) => {
             return false;
         case LOGIN:
             return action.payload
+        case ADD_ADDRESS:
+            return {
+                ...state,
+                address: action.address
+            }
         default:
             throw new Error("Invalid action")
     }

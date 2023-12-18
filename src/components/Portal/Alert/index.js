@@ -5,12 +5,14 @@ import Button from "~/components/Common/Button";
 import axios from "axios";
 
 const cx = classNames.bind(styles);
-function Alert({ message, isShow, id, isShowMessage, onDelete }) {
+function Alert({ type, message, isShow, id, isShowMessage, onDelete }) {
     const handleDelete = () => {
-        axios.delete(`http://localhost:5000/api/categories/${id}`)
+        axios.delete(`http://localhost:5000/api/${type}/${id}`)
             .then((response) => {
                 isShow(false);
-                onDelete(pre => pre + 1);
+                if(onDelete) {
+                    onDelete(pre => pre + 1);
+                }
                 isShowMessage({
                     isShow: true,
                     type: response.data.status,

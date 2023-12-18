@@ -1,4 +1,4 @@
-import { ADD_TO_FAVOURITE, CHANGE_QUANTITY, GET_RATING, REMOVE_TO_FAVOURITE, SET_CART, SET_COLORS, SET_PRODUCTS, SET_RATING, SET_SIZES } from "~/constant";
+import { ADD_PRODUCT, ADD_TO_FAVOURITE, CHANGE_QUANTITY, CLEAR_CART, DELETE_PRODUCT, GET_RATING, REMOVE_TO_FAVOURITE, SET_CART, SET_COLORS, SET_PRODUCTS, SET_RATING, SET_SIZES } from "~/constant";
 
 const productReducer = (state, action) => {
     switch (action.type) {
@@ -6,6 +6,14 @@ const productReducer = (state, action) => {
             return {
                 ...state,
                 products: action.payload
+            }
+        case ADD_PRODUCT: 
+            return {
+                ...state,
+                products: [
+                    action.payload,
+                    ...state.products
+                ]
             }
         case SET_RATING:
             return {
@@ -64,6 +72,16 @@ const productReducer = (state, action) => {
                         ...state.cart,
                         totalPrice: state.cart.totalPrice + action.payload,
                     }
+                }
+        case DELETE_PRODUCT: 
+                return {
+                    ...state,
+                    products: state.products.filter(product => product.idproduct !== action.payload.idproduct)
+                } 
+        case CLEAR_CART: 
+                return {
+                    ...state,  
+                    cart: {}
                 }
         case GET_RATING:
             return action.payload

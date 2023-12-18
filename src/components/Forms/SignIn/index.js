@@ -36,7 +36,7 @@ function SignIn() {
             .then((response) => {
                 if (response.data.status !== 'ERROR') {
                     const cookies = new Cookies();
-                    cookies.set('ecommerceToken', response.data.token, { path: '/' });
+                    cookies.set('ecommerceToken', response.data.token, { path: '/', maxAge: 259200 });
                     dispatch(userActions.login(response.data.user));
                     response.data.user.role ? navigate('/admin') : navigate('/');
                 }

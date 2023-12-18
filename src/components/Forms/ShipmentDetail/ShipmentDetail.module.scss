@@ -1,0 +1,21 @@
+.wrapper {
+    width: 90%;
+    margin-top: 20px;
+}
+
+.actions {
+    display: flex;
+    justify-content: space-between;
+}
+
+.link {
+    text-decoration: none;
+    color: var(--dark-blue);
+    font-size: 1.6rem;
+}
+
+.address {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}

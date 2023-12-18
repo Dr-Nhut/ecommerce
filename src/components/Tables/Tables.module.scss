@@ -1,0 +1,48 @@
+.wrapper {
+    width: 100%;
+    font-size: 1.6rem;
+    border-collapse: collapse;
+}
+
+.header {
+    color: var(--dark-blue);
+    font-size: 2rem;
+}
+
+.container {
+    text-align: center;
+}
+
+.product-item {
+    &:hover {
+        border-radius: 10px;
+        background-color: var(--white-green);
+    }
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.t-left {
+    text-align: left;
+}
+
+.w-4 {
+    width: 400px;
+}
+
+.thumbnail {
+    width: 64px;
+    height: 64px;
+    border-radius: 5px;
+}
+
+.actions {
+    height: 70px;
+    color: var(--dark-green);
+    cursor: pointer;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}

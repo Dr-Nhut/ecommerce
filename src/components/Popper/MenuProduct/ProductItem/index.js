@@ -9,8 +9,8 @@ function ProductItem({ product }) {
                 <img src={product.image} alt="product" />
             </div>
             <div className={cx("item-info")}>
-                <span className={cx("item-name")}>{product.title}</span>
-                <span className={cx("item-price")}>{product.price}$</span>
+                <p className={cx("item-name")}>{product.title}</p>
+                <span className={cx("item-price")}>{product.price}đ</span>
             </div>
         </div>
     );

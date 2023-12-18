@@ -1,0 +1,24 @@
+.wrapper {
+    margin: 20px;
+    height: 32px;
+    border-radius: 5px;
+    overflow: hidden;
+    display: flex;
+}
+
+.page {
+    border: 1px solid #ccc;
+    color: var(--dark-blue);
+    font-weight: 600;
+    cursor: pointer;
+    width: 32px;
+    height: 100%;
+    text-align: center;
+    line-height: 32px;
+    font-size: 1.6rem;
+}
+
+.active {
+    background-color: var(--dark-blue);
+    color: var(--primary);
+}

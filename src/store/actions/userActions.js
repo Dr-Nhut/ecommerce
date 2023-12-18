@@ -1,4 +1,4 @@
-import { LOGIN, LOGOUT } from "~/constant";
+import { LOGIN, LOGOUT, ADD_ADDRESS } from "~/constant";
 
 export const logout = () => ({
     type: LOGOUT,
@@ -9,4 +9,8 @@ export const login = payload => ({
     payload
 })
 
+export const addAddress = (address) => ({
+    type: ADD_ADDRESS,
+    address,
+})
 

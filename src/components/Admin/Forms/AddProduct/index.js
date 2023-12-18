@@ -1,16 +1,19 @@
 import classNames from 'classnames/bind';
 import styles from "./AddProduct.module.scss"
 import AddOption from '~/components/Admin/AddOption';
-import { useEffect, useRef, useState } from 'react';
+import { useContext, useEffect, useRef, useState } from 'react';
 import axios from 'axios';
 import Message from '~/components/Portal/Message';
 import { ERROR, SUCCESS } from '~/constant';
 import { createPortal } from 'react-dom';
 import Select from '~/components/Common/Select';
+import { ProductContext } from '~/store';
+import { productActions } from '~/store/actions';
 
 const cx = classNames.bind(styles);
 
 function AddProduct() {
+    const dispatch = useContext(ProductContext)[1];
     const [details, setDetails] = useState([]);
     const [title, setTitle] = useState("");
     const [price, setPrice] = useState(0);
@@ -38,8 +41,12 @@ function AddProduct() {
     const getCategories = () => {
         axios.get("http://localhost:5000/api/categories/")
             .then((response) => {
-                setOptions(response.data);
                 setSelected(response.data[0].idcategory);
+                const optionArray = response.data.map(data => ({
+                    id: data.idcategory,
+                    value: data.name
+                }))
+                setOptions(optionArray);
             })
             .catch(function (error) {
                 console.log(error);
@@ -85,6 +92,7 @@ function AddProduct() {
                         isShow: true,
                         message: response.data.message
                     });
+                    dispatch(productActions.addProduct(response.data.product));
                 }
                 else {
                     setShowMessage({
@@ -108,10 +116,10 @@ function AddProduct() {
             <label htmlFor="price">Giá cả</label>
             <input value={price} onChange={(e) => setPrice(+e.target.value)} id="price" type="text" required />
 
-            {options.length > 0 && <Select title="Loại sản phẩm" value={selected} onSelect={setSelected} options={options} />}
-            
+            {options.length > 0 && <Select title="Loại sản phẩm" value={selected} onSelect={setSelected} options={options} half />}
+
             {thumbnails ? <div className={cx('thumbnails')}>{thumbnails.map((item, index) => <img key={index} src={URL.createObjectURL(item)} alt='thumbnail' className={cx('thumbnail')} />)}</div> : thumbnails}
-            
+
             <label className={cx('label-btn')} htmlFor="thumbnails">Thêm ảnh</label>
             <input hidden id="thumbnails" name="thumbnails" ref={inputFileRef} onChange={(e) => handleOnChangeFile(e.target.files)} type="file" multiple />
 

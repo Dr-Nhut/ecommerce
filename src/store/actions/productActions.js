@@ -1,7 +1,12 @@
-import { SET_PRODUCTS, SET_RATING, SET_COLORS, SET_SIZES, GET_RATING, ADD_TO_FAVOURITE, REMOVE_TO_FAVOURITE, ADD_TO_CART, SET_CART, CHANGE_QUANTITY } from "~/constant";
+import { SET_PRODUCTS, ADD_PRODUCT, SET_RATING, SET_COLORS, SET_SIZES, GET_RATING, ADD_TO_FAVOURITE, REMOVE_TO_FAVOURITE, ADD_TO_CART, SET_CART, CHANGE_QUANTITY, DELETE_PRODUCT, CLEAR_CART } from "~/constant";
 
 export const setProducts = payload => ({
     type: SET_PRODUCTS,
+    payload
+})
+
+export const addProduct = payload => ({
+    type: ADD_PRODUCT,
     payload
 })
 
@@ -46,6 +51,15 @@ export const changeQuantityItem = payload => ({
 export const addToCart = payload => ({
     type: ADD_TO_CART,
     payload
+});
+
+export const deleteProduct = payload => ({
+    type: DELETE_PRODUCT,
+    payload
+});
+
+export const clearCart = () => ({
+    type: CLEAR_CART,
 });
 //
 
